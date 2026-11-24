@@ -1,3 +1,5 @@
+<img src=".github/icon.png" alt="" width="96" align="right">
+
 # AASPIRE
 
 **AAS-based Planning, Integration, Reconfiguration and Execution**: plug and produce with the Asset
