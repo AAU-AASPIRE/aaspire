@@ -2265,7 +2265,7 @@ every other primitive, or every other primitive of the same equipment.
 FORTE is a compiled program, and it can only create blocks of the types it was built with (section
 6.1: the cookie cutters are built in). So your new types need a FORTE built with them. The lab's
 **FORTE kit** does that: your teacher gives you `forte-kit.zip`, and its README
-([runtime/kit/README.md](../runtime/kit/README.md)) is the guide to it. Every command below is run
+([runtime/kit/README.md](https://github.com/AAU-AASPIRE/forte-runtime/blob/main/kit/README.md)) is the guide to it. Every command below is run
 in PowerShell, in `C:\forte-kit`.
 
 ```

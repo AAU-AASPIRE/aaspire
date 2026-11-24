@@ -51,7 +51,7 @@ instance by instance, is the integrator's record, kept beside the AAS.
 | skill-model | Skills, flows and parameters as every tool reads them | today `modgen.spec` and parts of modsync and modplan; a package of its own planned |
 | aas-generator | From spec sheets to a profile (an LLM pipeline with SHACL validation) | a repository of its own |
 
-Read further: [aas-models.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/aas-models.md)
-(every element, as built), [ppr-model.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/ppr-model.md)
-(the model and its applications), [aas-examples.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/aas-examples.md)
+Read further: [aas-models.md](../reference/aas-models.md)
+(every element, as built), [ppr-model.md](../reference/ppr-model.md)
+(the model and its applications), [aas-examples.md](../reference/aas-examples.md)
 (the example line's AASs with class diagrams).

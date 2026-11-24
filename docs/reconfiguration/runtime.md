@@ -49,4 +49,4 @@ cloned into `C:\4diac-fbe`, Python with the repository installed, and git.
 | A Pi that runs FORTE | `runtime/update-pi.ps1 -Pi user@address`: build, send the binary, rebuild the container, wait until FORTE answers |
 | Someone else's PC | `runtime/make-kit.ps1` makes `forte-kit.zip`: `build-project.ps1 -Project <their folder>` builds FORTE with their own block types, `install-pi.ps1 -Pi user@address` installs it over SSH, even on a Pi without internet |
 
-Read further: [forte-for-the-pi.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/forte-for-the-pi.md).
+Read further: [forte-for-the-pi.md](../reference/forte-for-the-pi.md).

@@ -10,7 +10,7 @@ process orders. It describes version 4.0 of the Production Sequence:
 The rest of the product, process and resource model ([ppr-model.md](ppr-model.md)) stays as it is.
 The figure is the page `production-sequence` of `journal-figures.drawio`,
 with `-battery` and `-pharma` beside it. The design decisions are in
-[design-log.md](design-log.md) (2 Nov). Nothing of this is built yet.
+[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md) (2 Nov). Nothing of this is built yet.
 
 ## 1. Why
 
@@ -253,7 +253,7 @@ Some choices made in them:
   - A `parallel` block gives edges from the step before it to the first step of each branch, and
     from the last step of each branch to the step after it.
 - **4.0 to 3.0 loses freedom** wherever the graph is not series-parallel. `Order` is what remains.
-- **The changes this needs** (estimated on 2 Nov, [design-log.md](design-log.md)):
+- **The changes this needs** (estimated on 2 Nov, [design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)):
   - the template in aas-model, together with the pending 3.0 update (F5);
   - the plan check;
   - the agents' loop over the ready steps;

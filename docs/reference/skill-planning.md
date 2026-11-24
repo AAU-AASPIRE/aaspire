@@ -15,7 +15,7 @@ recommendation.
 
 | Level | Who decides | Planned here |
 | --- | --- | --- |
-| Line | Agents: products and modules negotiate; since 31 Oct, for the demo, also centrally: FOND-AAS plans a policy with PDDL and a behaviour tree runs it ([framework-plan.md](framework-plan.md), section 1) | No |
+| Line | Agents: products and modules negotiate; since 31 Oct, for the demo, also centrally: FOND-AAS plans a policy with PDDL and a behaviour tree runs it ([framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md), section 1) | No |
 | Module | The module (its agent): which skill carries out a capability it is asked for | **Yes**: composite skills from its components' capabilities; now and then a composite of composites |
 | Component | – | No: its skills are primitives (block types) |
 
@@ -296,7 +296,7 @@ CSS, with inputs as preconditions and outputs as effects: the same view of state
 ## 8. Changes, in order
 
 All done: 1 to 6 on 27 and 28 Oct, 7 on 28 and 29 Oct (the plan's G0 to G7,
-[next-steps.md](next-steps.md)):
+[next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)):
 
 1. **Vocabulary 0.2 and PPRL 0.2**: the capabilities Referencing, Dosing, Taring, Pressing, Crimping,
    Imaging (auxiliary, each a class of its own: as subclasses they would inherit their parent's

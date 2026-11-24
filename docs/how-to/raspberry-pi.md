@@ -19,7 +19,7 @@ A Raspberry Pi 4 or 5 running a module's IEC 61499 program on its real IO.
 On the Pi, once, as a user with sudo:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AAUSmartProductionLab/iec61499-mgmt-py/main/runtime/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/AAU-AASPIRE/forte-runtime/main/install.sh | bash
 ```
 
 It installs Docker if it is missing and starts FORTE in a container with the GPIO lines and the PWM

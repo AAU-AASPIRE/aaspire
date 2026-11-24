@@ -29,8 +29,8 @@ It describes what is **built**, and says where a model exists only on paper. The
 | Resource AASs: line, module, component | `modreg` in this repository and the AASs it builds for the example line; ARSO 0.14 (`ontology/ARSO`) |
 | Product AAS, plan, stations of the planner | the demo data on the local AAS server (37 AASs, 31 sequences), which a newer planner than the pushed one wrote; and the planner's process sequence module (fork `basyx-aas-web-ui`, branch `feat/process-sequence-pharma`, commit `058a03e`) for its README and readers |
 | Product AAS and plan as built here | aas-model's `Product` and its templates (`templates/product`; `modreg/product.py` and `modreg/templates` until 28 Oct), and the three products of the example line (`cell/examples/products`) |
-| Intended product and process models | APSO 0.2, AProSO 0.1 and PPRL 0.2 (`ontology/`), [aas-implementation-plan.md](archive/aas-implementation-plan.md) (30 Sep, the product and process parts). APSO and AProSO describe structures nothing builds and are to be remade (F5 in [next-steps.md](next-steps.md)) |
-| Deviations of the generator's resource AAS from IDTA | [IDTA_CONFORMANCE.md](../ontology/ARSO/IDTA_CONFORMANCE.md) |
+| Intended product and process models | APSO 0.2, AProSO 0.1 and PPRL 0.2 (`ontology/`), [aas-implementation-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/archive/aas-implementation-plan.md) (30 Sep, the product and process parts). APSO and AProSO describe structures nothing builds and are to be remade (F5 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)) |
+| Deviations of the generator's resource AAS from IDTA | [IDTA_CONFORMANCE.md](https://github.com/AAU-AASPIRE/ontologies/blob/main/ARSO/IDTA_CONFORMANCE.md) |
 
 Not seen: AASs on the lab's server, and the source of the planner version that is running locally.
 
@@ -93,7 +93,7 @@ still read).
 
 Since 28 Oct there is a process AAS, one per product and line ([ppr-model.md](ppr-model.md),
 section 2), built from templates written by hand, not from AProSO. The planner still keeps its
-bindings in the product's Production Sequence as well (F6 in [next-steps.md](next-steps.md)).
+bindings in the product's Production Sequence as well (F6 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)).
 Section 7 lists this and the other places where two descriptions of the same thing differ.
 
 ## 2. Resource AASs: line, module, component
@@ -201,7 +201,7 @@ What is deliberately not in Skills:
 | Not there | Where it is instead |
 | --- | --- |
 | The skill's state, why it failed, its results as they are now | Variables: fields of the skill's time series (`State/<Skill>`), whose rows the DMP writes into InfluxDB from the interface (the mapping); the AAS holds no value. A field carries the semantic id of the Operation variable it shows as its supplemental semantic id |
-| Which block of the program a skill or a step is | Since 27 Oct (ARSO 0.10) the integrator's record of what was built, outside the AAS ([control-configuration.md](control-configuration.md)): a Control Configuration submodel per module with `Instances` (instance path, block type, type hash, a reference to the skill or the step), the change log and the management endpoint. The AAS keeps only `RuleSet` and each skill's `Deployment` |
+| Which block of the program a skill or a step is | Since 27 Oct (ARSO 0.10) the integrator's record of what was built, outside the AAS ([control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md)): a Control Configuration submodel per module with `Instances` (instance path, block type, type hash, a reference to the skill or the step), the change log and the management endpoint. The AAS keeps only `RuleSet` and each skill's `Deployment` |
 | What a primitive occupies | The component whose AAS it is described in |
 | Which capability it realizes | The capability says which skill realizes it; a skill never refers back |
 | A list of the skills a composite uses | Its steps refer to them |
@@ -276,7 +276,7 @@ Skills, against IDTA 02015 Control Component Type:
 | Live values | aas-model's Variables, time series only (the values in InfluxDB) | none | Operational Data | Variables |
 
 The lab's MQTT stations are AP2030-UNS's PackML stations over MQTT, which are no longer used
-([decisions.md](decisions.md), 31 Oct).
+([decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md), 31 Oct).
 
 The first two agree on capabilities down to the semantic ids, the role qualifier and the shape of
 `RealizedBy` (compared element by element against the planner's reader; not run in the planner), so

@@ -68,5 +68,5 @@ custody (on simulated shuttles), a step that needs a reconfiguration. To come be
 January: the loading and unloading modules, the agents on the filling Pi, a planned skill in a bid,
 failure handling, the Orders app.
 
-Read further: [agents.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/agents.md),
-[agents-literature.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/agents-literature.md).
+Read further: [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md),
+[agents-literature.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents-literature.md).

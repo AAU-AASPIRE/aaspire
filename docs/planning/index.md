@@ -29,4 +29,4 @@ offered now, offered after a reconfiguration (by which description), or not offe
 | FOND-AAS | the colleagues'; to read the same resource AASs and take its goal from the same recipe |
 | The Planner (web UI) | built: matches a recipe's steps to the resources and binds them ([web UI](../interfaces/web-ui.md)) |
 
-Read further: [skill-planning.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/skill-planning.md).
+Read further: [skill-planning.md](../reference/skill-planning.md).

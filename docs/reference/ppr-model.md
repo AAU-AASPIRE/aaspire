@@ -1,10 +1,10 @@
 # The product, process and resource model
 
-The model the work proceeds by, decided on 26 Oct 2026 ([decisions.md](decisions.md)): which AASs
+The model the work proceeds by, decided on 26 Oct 2026 ([decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md)): which AASs
 there are, what each holds, which ontology each element is tied to and by which id, which
 application reads and writes what, and how a product's need becomes a change of an IEC 61499
 program. Each part says whether it is built. What the AASs built today hold, element by element, is
-in [aas-models.md](aas-models.md); the plan is in [next-steps.md](next-steps.md), section F.
+in [aas-models.md](aas-models.md); the plan is in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md), section F.
 
 Figures (draw.io; open them at app.diagrams.net or in the draw.io desktop app, and edit them there):
 
@@ -96,8 +96,8 @@ specific asset ids, so it is found from either)
 | Skills | ours (ARSO) | Each skill as its commands, directly in the submodel; the Start's variables are the parameters with limits; a composite's steps; the error codes | Yes |
 | Asset Interfaces Description | IDTA 02017 (+ aas-model's actions) | The OPC UA endpoint and every action and property | Yes |
 | Asset Interfaces Mapping Configuration | IDTA 02027 | Which interface element feeds which data, which action an Operation calls | Yes |
-| Variables | aas-model's (ARSO 0.14; Operational Data until 0.13) | No live values (28 Oct): `State`, `Measurements` and `Log` holding IDTA 02008 time series as SMCs, each field's meaning a supplemental id and each series' segment naming its rows in InfluxDB; the coordinates in `Measurements` | Yes: the series and coordinates (28 Oct), the call logs (29 Oct); the DMP writes the rows. The rest of [state-and-parameters.md](state-and-parameters.md) waits for decisions |
-| (in Skills) `RuleSet`, `Deployment` | ours (ARSO 0.10) | The rule set the program is built by; per module level skill, `Built` or `Described`. What was built in detail (instances, block types, hashes, the change log) is the integrator's record outside the AAS ([control-configuration.md](control-configuration.md)) | Yes, since 27 Oct |
+| Variables | aas-model's (ARSO 0.14; Operational Data until 0.13) | No live values (28 Oct): `State`, `Measurements` and `Log` holding IDTA 02008 time series as SMCs, each field's meaning a supplemental id and each series' segment naming its rows in InfluxDB; the coordinates in `Measurements` | Yes: the series and coordinates (28 Oct), the call logs (29 Oct); the DMP writes the rows. The rest of [state-and-parameters.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/state-and-parameters.md) waits for decisions |
+| (in Skills) `RuleSet`, `Deployment` | ours (ARSO 0.10) | The rule set the program is built by; per module level skill, `Built` or `Described`. What was built in detail (instances, block types, hashes, the change log) is the integrator's record outside the AAS ([control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md)) | Yes, since 27 Oct |
 | Parameters | ours | The resource's settings (microsteps, speed, timeouts) | Planned; since 31 Oct the planar table's frame (Columns, Rows, FlywaySize, [locations-and-layout.md](locations-and-layout.md)) |
 | Technical Data | IDTA 02003 | Fixed facts (screw lead, motor current) | Planned |
 
@@ -205,7 +205,7 @@ its elements in the form of IDTA's specifications written from the template (`do
 | `modreg` | Specs, profiles, the ontologies | Every AAS (built, checked, registered); derived capabilities | – | Yes |
 | `modsync` | Skills, the integrator's record, the running program | `Deployment`, the interface of a new skill, the record, the boot file | Creates, writes, verifies (management protocol) | Yes |
 | `modlink`, HMI | Interface description, mapping, Skills | – | Occupies, calls skills (OPC UA) | Yes; the HMI moves into the web UI (C5), later the AAS alone (C6) |
-| Agents | Process and resource AAS | Bindings per order | Through `modlink` and `modsync` | Started 30 Oct for the demo (`lineagents`, [agents.md](agents.md)): they read the product's recipe and the resource AASs, run skills over OPC UA or through the DMP, and reconfigure with `modsync`; they write no bindings yet |
+| Agents | Process and resource AAS | Bindings per order | Through `modlink` and `modsync` | Started 30 Oct for the demo (`lineagents`, [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)): they read the product's recipe and the resource AASs, run skills over OPC UA or through the DMP, and reconfigure with `modsync`; they write no bindings yet |
 
 ## 8. The pipeline
 

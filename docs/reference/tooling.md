@@ -1,10 +1,10 @@
 # Tools and how the work is checked
 
-The working recipes behind [onboarding.md](onboarding.md): testing, changing the 4diac programs,
+The working recipes behind [onboarding.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/onboarding.md): testing, changing the 4diac programs,
 talking to a FORTE, running a whole module, deploying to a Pi, and building and publishing the
 AASs. Commands run from the repository root with the repository's venv
 (`.venv/Scripts/python.exe`, shown as `python`) and `PYTHONUTF8=1`, unless a folder is named.
-Learnings behind these recipes are in [work.md](work.md); search it before debugging something odd.
+Learnings behind these recipes are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); search it before debugging something odd.
 How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md).
 
 ## 1. Tests
@@ -160,7 +160,7 @@ scale, on ports 1502/1503), FORTE, and deploys the PC target's application; OPC 
 `--forte` it takes `output/bin/forte.exe`, which is older than the IO blocks of 21 Oct until the
 Windows build is installed again (section 2).
 
-The robot modules run in Python, without FORTE (`module-py/`, [demo-modules.md](demo-modules.md),
+The robot modules run in Python, without FORTE (`module-py/`, [demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md),
 section 3); their robots are simulated, `--speed` makes the jobs quicker:
 
 ```powershell
@@ -175,7 +175,7 @@ manifest at `:8088/manifest.json`, as on a module's Pi.
 ## 5. Deploying to a Raspberry Pi
 
 A fresh Pi (64-bit Raspberry Pi OS or Ubuntu) is set up once, on the Pi, by a user with sudo:
-`curl -fsSL https://raw.githubusercontent.com/AAUSmartProductionLab/iec61499-mgmt-py/main/runtime/install.sh | bash`
+`curl -fsSL https://raw.githubusercontent.com/AAU-AASPIRE/forte-runtime/main/install.sh | bash`
 (Docker, FORTE from `runtime/bin/forte-aarch64` in a container that restarts after a reboot, the
 GPIO chip, the PWM overlay, `fake-hwclock`). Then from this PC, with this PC's SSH key:
 
@@ -338,7 +338,7 @@ python -m pytest line-agents/tests --module-forte-exe runtime/fbe/build/modules-
 The agents' XMPP passwords come from `LINEAGENTS_SECRET`, else from `~/.lineagents-secret` (made once,
 outside the repository). After changing the secret, Prosody's accounts no longer match: remove the
 volume `lab-aas_prosody-data`. `--executor dmp` runs skills through the AAS server and the DMP (the
-InfluxDB token from `deploy/aas/.env`). The design and plan: [agents.md](agents.md).
+InfluxDB token from `deploy/aas/.env`). The design and plan: [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md).
 
 ## 7. Planning new skills (modplan)
 
@@ -365,7 +365,7 @@ state. Tests: `aas61499-tools/tests/test_modplan*.py`; on FORTE `test_modplan_li
 
 ## 8. The evaluation (cell/eval)
 
-The paper's numbers (plan steps B1, B2 and G6 in [next-steps.md](next-steps.md)); each script
+The paper's numbers (plan steps B1, B2 and G6 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)); each script
 writes its results to `cell/eval/results`.
 
 ```powershell

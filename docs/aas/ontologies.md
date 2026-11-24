@@ -48,5 +48,5 @@ ARSO may be extended for new building blocks and for what a skill's contract, st
 implementation hold; changes are made with the lab, not to fit the code. After the split the folder
 becomes the `ontologies` repository, a Python package with the Turtle files as data.
 
-Read further: the folder's own [README](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/ontology/README.md),
-and [ppr-model.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/ppr-model.md), sections 3 and 4.
+Read further: the folder's own [README](https://github.com/AAU-AASPIRE/ontologies/blob/main/README.md),
+and [ppr-model.md](../reference/ppr-model.md), sections 3 and 4.

@@ -41,5 +41,5 @@ rush order, a module plugged in), run by both orchestrators and measured the sam
 finish the orders, the reaction to a failure, the time until a module plugged in is used, and the work
 to set each up.
 
-Read further: [framework-plan.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/framework-plan.md),
-section 1; [agents.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/agents.md).
+Read further: [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md),
+section 1; [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md).

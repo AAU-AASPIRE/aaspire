@@ -5,7 +5,7 @@ A description for the paper's method and implementation sections, kept with the 
 assumes. The rules the tools rely on are [module-rules.md](module-rules.md); the AAS they read is
 [aas-models.md](aas-models.md); how an AAS skill maps to IEC 61499 blocks, with figures, is
 [mapping.md](mapping.md); how to run them is [tooling.md](tooling.md); what changes in them before the
-repository is split is [framework-plan.md](framework-plan.md), section 4.
+repository is split is [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md), section 4.
 
 ## 1. Three tools, one contract
 
@@ -22,7 +22,7 @@ interface of the module:
 A fifth tool, **modreg**, makes and checks the AAS (from a spec, or from what modsync read), derives
 the offered capabilities from the skills, and registers the AAS; it is the vendor's and the
 registration service's tool and is described in [aas-models.md](aas-models.md). The line's agents
-(`lineagents`, [agents.md](agents.md)) use modsync to create a skill online and modlink to run it.
+(`lineagents`, [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)) use modsync to create a skill online and modlink to run it.
 
 **The contract is the module rules, not the tools.** modgen writes programs by the rules, modsync
 reads programs back by them, modreg describes programs by them, and modlink calls the interface they
@@ -216,7 +216,7 @@ could be made. It changes no block types.
 Besides the AAS mode above, modsync has an older mode against a module spec (`pull`, `push`, `watch`):
 the program modgen generates from the spec is compared instance by instance, and anything other than
 a value or a new skill is deployed by a new boot file and a restart. It is the vendor's and the lab's
-development tool; [framework-plan.md](framework-plan.md) (section 4, item 2) folds it into the AAS
+development tool; [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md) (section 4, item 2) folds it into the AAS
 mode.
 
 ## 4. modlink: operating a module from its AAS

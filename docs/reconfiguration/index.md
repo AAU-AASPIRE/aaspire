@@ -46,6 +46,6 @@ that runs, so it is created in any state, even while another skill executes.
 | forte-runtime | FORTE built with every module's block types, for the PC and the Raspberry Pi | [FORTE runtime](runtime.md) |
 | Skill Editor | A composite skill written as a flow, in the web UI | [Web UI](../interfaces/web-ui.md) |
 
-Read further: [module-rules.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/module-rules.md),
-[pipeline.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/pipeline.md),
-[mapping.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/mapping.md) (an AAS skill as blocks).
+Read further: [module-rules.md](../reference/module-rules.md),
+[pipeline.md](../reference/pipeline.md),
+[mapping.md](../reference/mapping.md) (an AAS skill as blocks).

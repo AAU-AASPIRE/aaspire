@@ -44,6 +44,6 @@ python cell/examples/example_line.py --out aas --publish http://localhost:8081
 python cell/eval/scenarios.py --forte <forte.exe> --runs 5       # the evaluation
 ```
 
-Read further: [modules.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/modules.md)
-(the two modules and their hardware), [demo-modules.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/demo-modules.md)
-(the other four), [aas-examples.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/aas-examples.md).
+Read further: [modules.md](../reference/modules.md)
+(the two modules and their hardware), [demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md)
+(the other four), [aas-examples.md](../reference/aas-examples.md).

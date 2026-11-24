@@ -14,12 +14,12 @@ process component (the filling pump, the stoppering piston). The line is six mod
 
 | Module | Components | State |
 | --- | --- | --- |
-| Loading | Kuka robot, gripper | run in Python (3 Nov): `cell/modules/python/loading.yaml`, served by modpy on the robot's own Raspberry Pi, its skills the robot's jobs; the robot simulated ([demo-modules.md](demo-modules.md)) |
+| Loading | Kuka robot, gripper | run in Python (3 Nov): `cell/modules/python/loading.yaml`, served by modpy on the robot's own Raspberry Pi, its skills the robot's jobs; the robot simulated ([demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md)) |
 | Filling | filling pump, linear axis (and a simulated scale) | generated, runs on FORTE with the simulator |
 | Stoppering | stoppering piston, linear axis | generated, runs on FORTE with the simulator |
-| Capping | cap crimper, linear axis | generated (3 Nov), runs on FORTE with the simulator; built as filling, the crimper simulated, its Pi to come ([demo-modules.md](demo-modules.md)) |
-| Inspection | top camera, side camera | planned: `cell/modules/planned/inspection.yaml`, no program; the cameras in a Python service, the images to a store ([demo-modules.md](demo-modules.md)) |
-| Unloading | Kuka robot, gripper | run in Python (3 Nov): as loading, `cell/modules/python/unloading.yaml` ([demo-modules.md](demo-modules.md)) |
+| Capping | cap crimper, linear axis | generated (3 Nov), runs on FORTE with the simulator; built as filling, the crimper simulated, its Pi to come ([demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md)) |
+| Inspection | top camera, side camera | planned: `cell/modules/planned/inspection.yaml`, no program; the cameras in a Python service, the images to a store ([demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md)) |
+| Unloading | Kuka robot, gripper | run in Python (3 Nov): as loading, `cell/modules/python/unloading.yaml` ([demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md)) |
 
 The vials ride between them on the shuttles of the planar table (`planar-controller/`, Python over
 OPC UA, not IEC 61499); the table and each shuttle have an AAS like a module's (`modreg profile
@@ -27,7 +27,7 @@ planar`, [locations-and-layout.md](locations-and-layout.md)).
 
 We call them **modules** (not stations or units). Each module runs on its own Raspberry Pi and
 is deployed on its own; it is orchestrated only through OPC UA methods and variables (MQTT may
-come back later as an option). The structure of a generated module is in [work.md](work.md).
+come back later as an option). The structure of a generated module is in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md).
 
 ## What goes where
 
@@ -177,5 +177,5 @@ module Reset/Start/Stop/Abort/Clear, skill Start/Stop/Abort/Reset with parameter
 ErrorID variables). The ESP32s' MQTT topics (`NN/Nybrovej/InnoLab/<Module>/CMD/<Action>` with
 a JSON `Uuid`, answers on `/DATA/...`) are not carried over; an MQTT facade may be added later
 as an option, since FORTE has MQTT. Both orchestrators of the demo use these calls
-([framework-plan.md](framework-plan.md), section 1): straight over OPC UA, or through the AAS
+([framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md), section 1): straight over OPC UA, or through the AAS
 server, where the DMP turns an invoked Operation into the method call.

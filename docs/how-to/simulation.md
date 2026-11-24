@@ -7,23 +7,23 @@ Windows, with Python 3.11.
 ## 1. Install
 
 ```powershell
-git clone --recurse-submodules https://github.com/AAUSmartProductionLab/iec61499-mgmt-py
-cd iec61499-mgmt-py
-python -m venv .venv
-.venv/Scripts/python.exe -m pip install -e ".[test,registration,opcua]"
+mkdir AAU-AASPIRE; cd AAU-AASPIRE
+git clone https://github.com/AAU-AASPIRE/aaspire.git
+.aspire\workspace\clone.ps1 -Install       # every repository beside it, the Python parts installed
+cd aseptic-line                               # the commands below run in the line's repository
 ```
 
 ## 2. FORTE for Windows
 
-The module's program needs a FORTE built with its block types: `runtime/build-modules.ps1` builds it
+The module's program needs a FORTE built with its block types: forte-runtime's `build-modules.ps1` builds it
 (once the 4diac IDE and the FBE are installed, see [FORTE runtime](../reconfiguration/runtime.md)) into
-`runtime/fbe/build/modules-win/output/bin/forte.exe`.
+`../forte-runtime/fbe/build/modules-win/output/bin/forte.exe`.
 
 ## 3. Start the module
 
 ```powershell
-.venv/Scripts/python.exe cell/sim/run_module.py cell/modules/filling.yaml
-.venv/Scripts/python.exe cell/sim/run_module.py cell/modules/stoppering.yaml --opcua-port 4841 --mgmt-port 61500
+python cell/sim/run_module.py cell/modules/filling.yaml
+python cell/sim/run_module.py cell/modules/stoppering.yaml --opcua-port 4841 --mgmt-port 61500
 ```
 
 It starts the simulator, FORTE (`--forte` names another binary) and deploys the PC target's

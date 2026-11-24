@@ -15,15 +15,15 @@ editor) are to change, so that:
 built. Phase 3 and most of phase 4 were overtaken by planning ([skill-planning.md](skill-planning.md)):
 `modreg serve` checks a skill (`POST /check/<shell>`) and plans one for a capability the module
 offers (`POST /plan/<shell>`), and the editor uses both (29 Oct); a resource agent planning a skill
-for a bid is still to come (A3 in [agents.md](agents.md)). The flow blocks as built are rule set 2 in
+for a bid is still to come (A3 in [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)). The flow blocks as built are rule set 2 in
 [module-rules.md](module-rules.md), section 3; the editor as built is described in the web UI fork
 (`aas-web-ui/src/pages/modules/ProcessSequence/skills/README.md`). Since 30 Oct the planner and the
 skill editor also draw the same flows in BPMN notation (`ProcessSequenceBpmn`;
-[design-log.md](design-log.md), 30 Oct).
+[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md), 30 Oct).
 
 Where the tools stand today: [tools.md](tools.md). The model: [aas-models.md](aas-models.md) and
 [ppr-model.md](ppr-model.md). The Control Configuration question, which touches the overview:
-[control-configuration.md](control-configuration.md) (decided 27 Oct: option C).
+[control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md) (decided 27 Oct: option C).
 
 ## 1. Today
 
@@ -189,14 +189,14 @@ capabilities:
 | `GET /vocabulary/...` | Skill types, capabilities, properties with labels, for pickers | `ontology/Vocabulary` |
 | `POST /reconfigure/<shell>?dry_run` | What modsync would do on the module: create, write, or refused (needs a restart) | `modsync.desired.reconfigure(dry_run=True)` |
 | `POST /reconfigure/<shell>` | Apply it, guarded as on the command line | The same. On a Pi only with someone at the bench (our rule for anything that can move an axis; creating a skill moves nothing, but a written value can) |
-| `GET /build/<shell>` | The backend's record of what was built, if the Control Configuration moves there | [control-configuration.md](control-configuration.md), option C |
+| `GET /build/<shell>` | The backend's record of what was built, if the Control Configuration moves there | [control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md), option C |
 
 **As built (27 to 29 Oct):** `POST /check/<shell>` (the checker of `modplan`, on the module's skills
 or on the one skill the editor holds, in place of `/skills/check`; the editor keeps its TypeScript
 checks as well), `POST /plan/<shell>` (a skill planned for a capability the module offers and, with
 `write`, described on the AAS server, in place of `/skills/propose`), `POST /capabilities/<shell>`
 (without `preview`), `GET` and `PUT /build/<idShort>`. Not built: `preview`, `/vocabulary`,
-`/reconfigure`; reconfiguration as a service is item 8 of [framework-plan.md](framework-plan.md),
+`/reconfigure`; reconfiguration as a service is item 8 of [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md),
 section 4.
 
 ## 5. Recommendations and automation from the ontology
@@ -237,7 +237,7 @@ module as "offered after a reconfiguration", and `modsync reconfigure` (or the b
 dry run first) builds it. Later a resource agent calls the same `propose`, `check` and
 `reconfigure` without the editor.
 
-Not built as proposed: planning took its place (G5 and G7 in [next-steps.md](next-steps.md)).
+Not built as proposed: planning took its place (G5 and G7 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)).
 Discovery offers what a planned skill would reach, and *Plan a skill* in the skill overview plans
 one for a capability the module offers and describes it.
 
@@ -296,7 +296,7 @@ this file.
 
 **Decisions needed (answered 27 Oct: C; phase 2 before the paper; the fork committed):**
 
-1. The Control Configuration: option A, B or C ([control-configuration.md](control-configuration.md)).
+1. The Control Configuration: option A, B or C ([control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md)).
 2. Does the paper show a skill with a branch? It decides whether phase 2 comes before B1 and B2.
 3. Your go to commit the fork's pending changes (the fixes and ARSO 0.9), which phase 1 builds on.
 4. Rule set 2 and the new library types: they change the module rules and need one FORTE build

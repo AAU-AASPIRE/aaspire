@@ -97,6 +97,24 @@ nav:
   - Interfaces: interfaces/web-ui.md
   - Deployment: deployment/deploy.md
   - Lines: lines/aseptic-line.md
+  - Reference:
+      - "The AAS models": reference/aas-models.md
+      - "The product, process and resource model": reference/ppr-model.md
+      - "The example line's AASs": reference/aas-examples.md
+      - "The Production Sequence as a precedence graph": reference/precedence-graphs.md
+      - "From the AAS to IEC 61499 and back": reference/mapping.md
+      - "From AAS to running code, and back": reference/pipeline.md
+      - "How a module is built: the rules": reference/module-rules.md
+      - "Building skills and equipment": reference/building-skills.md
+      - "Authoring skills": reference/skill-authoring.md
+      - "Composing skills from capabilities": reference/skill-planning.md
+      - "Locations and the table's layout": reference/locations-and-layout.md
+      - "Filling and stoppering modules": reference/modules.md
+      - "The filling program": reference/filling-program.md
+      - "The filling program, with screenshots": reference/filling-program-screenshots.md
+      - "Building FORTE for the Pi": reference/forte-for-the-pi.md
+      - "How the tools work": reference/tools.md
+      - "Tools and how the work is checked": reference/tooling.md
   - How-to:
       - Run a module on a PC: how-to/simulation.md
       - Put a module on a Raspberry Pi: how-to/raspberry-pi.md

@@ -43,7 +43,7 @@ A Raspberry Pi 4 or 5 with a 64-bit Linux becomes an IEC 61499 module with one c
 by a user with sudo:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AAUSmartProductionLab/iec61499-mgmt-py/main/runtime/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/AAU-AASPIRE/forte-runtime/main/install.sh | bash
 ```
 
 It installs Docker if it is missing, starts FORTE (with every module's block types) in a container that

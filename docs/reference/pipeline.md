@@ -7,8 +7,8 @@ or an order asks for something the module does not do yet. Every step says wheth
 
 The details are elsewhere: what each AAS holds in [aas-models.md](aas-models.md), the rules a
 module is built by in [module-rules.md](module-rules.md), how each tool works in
-[tools.md](tools.md) (what was built and learnt on the way in [work.md](work.md)), what was decided
-in [decisions.md](decisions.md), the plan in [next-steps.md](next-steps.md).
+[tools.md](tools.md) (what was built and learnt on the way in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)), what was decided
+in [decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md), the plan in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md).
 
 ## 1. The picture
 
@@ -87,7 +87,7 @@ what lets the tools read a program back and change it later.
 The Skills submodel says **what is wanted**, and with `Deployment` whether it is built. In detail
 what was built (every skill and step instance with its block type and the type hash FORTE reports,
 the change log, where the module is managed) is the integrator's record, kept outside the AAS since
-27 Oct ([control-configuration.md](control-configuration.md))
+27 Oct ([control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md))
 
 ## 4. Operating the module from its AAS
 
@@ -180,7 +180,7 @@ Anything beyond that (a new primitive, new equipment) is a new build, not a reco
 | 3 | The filling module offers Filling for 0.5 to 10 mL; the meanings match | Built |
 | 4 | Filling is realized by the skill Dispensing; its parameter Volume carries the meaning FillVolume | Built |
 | 5 | The plan's step is assigned to the module and Dispensing, Volume bound to the product's FillVolume | Built: the planner reads the modules' ARSO skills and binds Volume to FillVolume by their meaning (web UI fork, `ac9eb64`) |
-| 6 | Someone runs the step: occupies the module, calls Dispensing with Volume = 2 | Built 30 Oct by the agents (`lineagents`, [agents.md](agents.md)): the product agent calls for the step, the module's agent bids and runs Dispensing, on modules simulated on the PC; `modlink` does it for one module, the HMI by hand |
+| 6 | Someone runs the step: occupies the module, calls Dispensing with Volume = 2 | Built 30 Oct by the agents (`lineagents`, [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)): the product agent calls for the step, the module's agent bids and runs Dispensing, on modules simulated on the PC; `modlink` does it for one module, the HMI by hand |
 | 7 | The call becomes `Skills/Dispensing/Start(Session, 2.0)` over OPC UA | Built |
 | 8 | Dispensing hands Volume to its Dispense step; the pump runs; the axis moves; the scale is read | Built (no pump yet: a time stands in) |
 
@@ -191,7 +191,7 @@ reconfigure`. Section 5 does the rest. Since 30 Oct the agents do it for a skill
 described: a module's agent bids with a skill offered "after a reconfiguration" (F3), and when its
 bid is accepted it creates the skill online with `modsync` and runs it (the syringe's
 BottomUpFilling, `line-agents/tests/test_agents_live.py`, on FORTE on the PC). Not built: an agent
-that plans the missing skill itself (A3 in [agents.md](agents.md)), and the same on the Pis.
+that plans the missing skill itself (A3 in [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)), and the same on the Pis.
 
 ## 7. Back to the 4diac IDE
 

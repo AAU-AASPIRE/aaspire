@@ -31,7 +31,7 @@ runtime/build-pi.ps1                 # first (not -SkipValidate), so the lab's e
 runtime/make-kit.ps1                 # runtime/dist/forte-kit.zip (-NoLabModules: without the lab's modules)
 ```
 
-Send them `forte-kit.zip`; its README ([runtime/kit/README.md](../runtime/kit/README.md)) is their
+Send them `forte-kit.zip`; its README ([runtime/kit/README.md](https://github.com/AAU-AASPIRE/forte-runtime/blob/main/kit/README.md)) is their
 guide. They run `build-project.ps1 -Project <their project folder>`. It exports their project next
 to the lab's modules, cross-compiles, and packages `bin/forte-aarch64`. `install-pi.ps1 -Pi
 user@address` copies it with `install.sh`, the container files and the arm64 base images (in the

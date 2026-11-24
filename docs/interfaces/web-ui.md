@@ -34,6 +34,6 @@ service's address (`modreg serve`, port 8090), set in the Process Sequence edito
 To work on the apps themselves, the fork's own README and AGENTS.md describe the tooling (Node 24,
 pnpm) and the checks (eslint, vitest, vue-tsc).
 
-Read further: [skill-authoring.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/skill-authoring.md)
-(the Skill Editor and the Planner, as decided), [locations-and-layout.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/locations-and-layout.md)
+Read further: [skill-authoring.md](../reference/skill-authoring.md)
+(the Skill Editor and the Planner, as decided), [locations-and-layout.md](../reference/locations-and-layout.md)
 (the planar table's layout).

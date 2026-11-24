@@ -2,7 +2,7 @@
 
 For whoever maintains [../filling-program.md](../filling-program.md), not for its readers. The
 guide is for students who make function blocks by hand in the 4diac IDE (with the FORTE kit,
-[../../runtime/kit/README.md](../../runtime/kit/README.md)); it says nothing about the generator.
+[../../runtime/kit/README.md](https://github.com/AAU-AASPIRE/forte-runtime/blob/main/kit/README.md)); it says nothing about the generator.
 This note is left out of the students' zip.
 
 ## Where the program comes from

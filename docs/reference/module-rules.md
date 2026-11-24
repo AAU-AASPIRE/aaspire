@@ -9,7 +9,7 @@ rules are the contract, not the generator: a module written by hand in an IEC 61
 the same shell is as good. A module names the rule set it follows in its AAS (Skills, `RuleSet`).
 A program that uses section 3's flows needs a FORTE built with the library's flow blocks.
 
-The structure of a generated module and the reasons behind it are in [work.md](work.md); the two
+The structure of a generated module and the reasons behind it are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); the two
 lab modules in [modules.md](modules.md). Names in `<angle brackets>` are the module's own.
 
 ## 1. The shell
@@ -56,7 +56,7 @@ A skill primitive is a block type. It is the unit a module level skill is built 
    ends if `ReleaseAfter` is set. Instances with the same `Holder` share the equipment: that is how
    the steps of one module level skill keep it between them.
 6. States and error codes are those of `modlib::SKILL_Core` (see *Skill interface* in
-   [work.md](work.md)).
+   [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)).
 
 An offered primitive is an instance `<Skill>` of its type in the application, with
 `UaPath = /Skills/<Skill>`, `Methods = TRUE`, `Holder = <Skill>` and `ReleaseAfter = TRUE`. A primitive

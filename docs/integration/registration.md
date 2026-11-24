@@ -59,5 +59,5 @@ service.
     would overwrite them. Publish there only with the lab's agreement. For work, run the
     [stack on your own PC](../deployment/deploy.md).
 
-Read further: [aas-models.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/aas-models.md),
-[agents.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/agents.md), section 2 (discovery).
+Read further: [aas-models.md](../reference/aas-models.md),
+[agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md), section 2 (discovery).

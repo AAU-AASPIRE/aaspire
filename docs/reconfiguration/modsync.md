@@ -78,5 +78,5 @@ which a whole boot file could be made. It changes no block types.
 Beside the AAS mode, modsync has an older mode against a module spec (`pull`, `push`, `watch`), the
 vendor's and the lab's development tool; it is to be folded into the AAS mode.
 
-Read further: [tools.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/tools.md),
-section 3; [mapping.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/mapping.md).
+Read further: [tools.md](../reference/tools.md),
+section 3; [mapping.md](../reference/mapping.md).

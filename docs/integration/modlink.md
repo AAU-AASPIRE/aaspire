@@ -59,4 +59,4 @@ modlink writes nothing into the AAS and never uses FORTE's management protocol: 
 never changes it. It does not plan, and it leaves the range check to the module, which refuses a value
 out of range itself.
 
-Read further: [tools.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/tools.md), section 4.
+Read further: [tools.md](../reference/tools.md), section 4.

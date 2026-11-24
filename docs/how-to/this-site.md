@@ -18,8 +18,9 @@ python -m mkdocs build --strict          # into aaspire/site/ (not committed); f
 - `mkdocs.yml` holds the navigation: a section per pillar, a page per part, then the how-to pages.
 - A part's page: what it is and its folder; the figure; how it works, its steps numbered as in the
   figure; how to use it (commands that run as written); what it does not do; where to read further.
-- Links to the working notes go to GitHub (`https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/...`):
-  they are not part of the site.
+- The reference documents (the models, the rules, the tools) are pages of the site, in `docs/reference`.
+  The working notes (design log, plans, decisions) are in the private `aaspire-internal`; a link to one
+  opens only for the organization's members.
 - The words are those of the [glossary](../overview/glossary.md).
 
 ## The figures

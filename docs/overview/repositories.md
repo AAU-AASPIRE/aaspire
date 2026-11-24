@@ -1,7 +1,7 @@
 # Repositories
 
 All of AASPIRE's parts that the lab builds still share one repository,
-[iec61499-mgmt-py](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py). Each top-level folder
+[iec61499-mgmt-py](https://github.com/AAU-AASPIRE/aaspire). Each top-level folder
 there is a future repository of the GitHub organization `AAU-AASPIRE`, or part of one. The split
 waits until after the CIRP paper (18 November 2026); until then the folder is where the code is.
 
@@ -50,8 +50,8 @@ out.
 ## The working notes
 
 The repository's `docs/` folder holds the notes the work was done by: what was built and learnt
-([work.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/work.md)), the
-design log, the plan ([next-steps.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/next-steps.md)),
+([work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)), the
+design log, the plan ([next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)),
 the decisions, the papers' drafts and the figures. They stay with the line; this site is written from
 them for a reader who was not there. The plan for the framework, its repositories and this site is
-[framework-plan.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/framework-plan.md).
+[framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md).

@@ -61,7 +61,7 @@ python -m pytest -q iec61499-skill-lib/tests      # the generator against the co
 A change to the generator is committed with the regenerated projects; a test generates every project
 again and compares. A new or changed block type needs a new [FORTE](runtime.md).
 
-Read further: [module-rules.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/module-rules.md),
-[building-skills.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/building-skills.md)
-(a new skill, primitive or piece of equipment), [filling-program.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/filling-program.md)
+Read further: [module-rules.md](../reference/module-rules.md),
+[building-skills.md](../reference/building-skills.md)
+(a new skill, primitive or piece of equipment), [filling-program.md](../reference/filling-program.md)
 (the filling program block by block).

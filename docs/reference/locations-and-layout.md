@@ -2,7 +2,7 @@
 
 Design of 27 Oct 2026, changed on 28 Oct from frames on Hierarchical Structures nodes to
 coordinates in Operational Data (ARSO 0.13, vocabulary 0.5, `modreg/frames.py`; the reasons in
-[design-log.md](design-log.md)), and the same day into aas-model's Variables (ARSO 0.14; the classes
+[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)), and the same day into aas-model's Variables (ARSO 0.14; the classes
 in aas-model's `submodel_templates/coordinates.py`). The planar table's AAS (section 3, `modreg/planar.py`) is built too.
 Every resource AAS says where it and its points are, relative to another coordinate, so that any
 point of interest (where a shuttle stands for the vial to be filled, where a robot picks or places)
@@ -147,8 +147,8 @@ Configurator lays that out for a line and keeps it in the line's AAS, `Parameter
 
 | Point | Proposal |
 | --- | --- |
-| Units of a frame | Settled 28 Oct: mm and degrees, as the interfaces ([design-log.md](design-log.md)) |
-| A building AAS, or Asset Location on the line | Neither (28 Oct): the line is the root. IDTA 02045-1-0 was read; it is for tracking and tracing, without orientation or parent-relative frames ([design-log.md](design-log.md)) |
+| Units of a frame | Settled 28 Oct: mm and degrees, as the interfaces ([design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)) |
+| A building AAS, or Asset Location on the line | Neither (28 Oct): the line is the root. IDTA 02045-1-0 was read; it is for tracking and tracing, without orientation or parent-relative frames ([design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)) |
 | The frame as an extension of 02011 | Gone (28 Oct): coordinates in Variables instead, and Hierarchical Structures is a bill of material again |
 | Which configurator reads the layout | The Web UI's Configurator (31 Oct): the frame from the table's Parameters, the flyways from their coordinates; the routing it keeps in the line's Parameters |
 | Transport as a capability for the agents | Built 30 Oct: each shuttle offers Transporting, Receiving and Releasing (section 3), and its agent bids for transport like a module's |

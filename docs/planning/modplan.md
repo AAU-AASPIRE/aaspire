@@ -67,5 +67,5 @@ A module's state is a handful of properties of its components and of one product
 value, and a skill starts and ends at rest. Not modelled: relations between many objects (a
 transport system's carriers), arithmetic beyond adding and comparing, and time.
 
-Read further: [skill-planning.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/skill-planning.md),
-[tools.md](https://github.com/AAUSmartProductionLab/iec61499-mgmt-py/blob/main/docs/tools.md), section 5.
+Read further: [skill-planning.md](../reference/skill-planning.md),
+[tools.md](../reference/tools.md), section 5.
