@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="235" viewBox="-404 -120 1521 940" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect x="-404" y="-120" width="1521" height="940" fill="#ffffff"/>
+<rect x="0" y="420" width="685" height="280" rx="30" fill="#eef2f8" stroke="#56688a" stroke-width="6"/>
+<rect x="0" y="0" width="685" height="380" rx="30" fill="#eef2f8" stroke="#56688a" stroke-width="6"/>
+<rect x="45" y="350" width="595" height="100" rx="0" fill="#dde5f1" stroke="#56688a" stroke-width="5"/>
+<text x="342" y="420" font-size="58" text-anchor="middle" fill="#1f2430">SC_Tare</text>
+<polygon points="10,55 42,75 10,95" fill="#b5452b"/>
+<text x="55" y="95" font-size="58" text-anchor="start" fill="#1f2430">INIT</text>
+<polygon points="10,155 42,175 10,195" fill="#b5452b"/>
+<text x="55" y="195" font-size="58" text-anchor="start" fill="#1f2430">START</text>
+<polygon points="10,255 42,275 10,295" fill="#b5452b"/>
+<text x="55" y="295" font-size="58" text-anchor="start" fill="#1f2430">SAMPLE</text>
+<polygon points="643,55 675,75 643,95" fill="#b5452b"/>
+<text x="630" y="95" font-size="58" text-anchor="end" fill="#1f2430">INITO</text>
+<rect x="12" y="484" width="32" height="32" rx="0" fill="#7d3cb5" stroke="#7d3cb5" stroke-width="1"/>
+<text x="55" y="520" font-size="58" text-anchor="start" fill="#1f2430">EqHolder</text>
+<rect x="635" y="576" width="44" height="48" rx="8" fill="#c0761a" stroke="#c0761a" stroke-width="7"/>
+<text x="623" y="620" font-size="58" text-anchor="end" fill="#c0761a" font-weight="bold">Run</text>
+<line x1="-40" y1="275" x2="-40" y2="500" stroke="#6b7280" stroke-width="4"/>
+<rect x="-50" y="265" width="20" height="20" rx="0" fill="#6b7280" stroke="#6b7280" stroke-width="1"/>
+<rect x="-50" y="490" width="20" height="20" rx="0" fill="#6b7280" stroke="#6b7280" stroke-width="1"/>
+<text x="-88" y="518" font-size="50" text-anchor="end" fill="#6b7280">WSTRING</text>
+<text x="745" y="618" font-size="50" text-anchor="start" fill="#6b7280">AContract</text>
+</svg>
