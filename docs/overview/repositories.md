@@ -1,57 +1,51 @@
 # Repositories
 
-All of AASPIRE's parts that the lab builds still share one repository,
-[iec61499-mgmt-py](https://github.com/AAU-AASPIRE/aaspire). Each top-level folder
-there is a future repository of the GitHub organization `AAU-AASPIRE`, or part of one. The split
-waits until after the CIRP paper (18 November 2026); until then the folder is where the code is.
+AASPIRE is a set of repositories in the GitHub organization
+[AAU-AASPIRE](https://github.com/AAU-AASPIRE), one per part, grouped by pillar. Until 24 November 2026
+they shared one repository (AAUSmartProductionLab/iec61499-mgmt-py); each part was copied out with its
+history.
 
 <figure markdown="span">
-  [![Each folder of the repository today, an arrow to the repositories it becomes, coloured by
-  pillar](../figures/repository-map.png)](../figures/repository-map.png)
-  <figcaption>Folders today (left) and the repositories they become (right), in their pillars'
-  colours. Submodules are other repositories already; aaspire is the main repository, with this site.</figcaption>
+  [![The repositories of AAU-AASPIRE by pillar, and where each came from](../figures/repository-map.png)](../figures/repository-map.png)
+  <figcaption>The repositories by pillar, in the pillars' colours, and where each came from.</figcaption>
 </figure>
 
-| Folder | Becomes | Pillar | Language | Page |
-| --- | --- | --- | --- | --- |
-| `aas-model/` (submodule) | aas-model | AAS | Python | [aas-model](../aas/aas-model.md) |
-| `ontology/` | ontologies | AAS | Turtle, SHACL | [Ontologies](../aas/ontologies.md) |
-| `iec61499-skill-lib/` | iec61499-skill-lib; skill-model (`modgen.spec`) | Reconfiguration; AAS | Python, 4diac XML | [Skill library](../reconfiguration/skill-lib.md) |
-| `aas61499-tools/` | modsync, modplan, registration-service (`modreg`); skill-model | Reconfiguration, Planning, Integration | Python | [modsync](../reconfiguration/modsync.md), [modplan](../planning/modplan.md), [registration](../integration/registration.md) |
-| `iec61499-mgmt-py/` | iec61499-mgmt-py | Reconfiguration | Python | [Management library](../reconfiguration/mgmt.md) |
-| `runtime/` | forte-runtime; deploy-module (`install.sh`, the kit) | Reconfiguration; Deployment | PowerShell, C++ patches | [FORTE runtime](../reconfiguration/runtime.md) |
-| `aas-camel-dmp/` (submodule) | aas-camel-dmp | Integration | Java | [DMP](../integration/dmp.md) |
-| `iec61499-opcua-hmi/` (submodule) | modlink (the HMI repository is then archived) | Integration | Python | [modlink](../integration/modlink.md) |
-| `line-agents/` | lineagents | Execution | Python | [Line agents](../execution/agents.md) |
-| `planar-controller/` (submodule) | planar-controller | Execution | Python | [Planar controller](../execution/planar-controller.md) |
-| `basyx-aas-web-ui/` (submodule) | basyx-aas-web-ui (a fork) | Interfaces | Vue, TypeScript | [Web UI](../interfaces/web-ui.md) |
-| `deploy/` | deploy-server (`aas/`), deploy-module (`pi/`, `pi.py`) | Deployment | Compose, Python | [Deployment](../deployment/deploy.md) |
-| `cell/` | aseptic-line | Lines | Python, YAML | [The aseptic line](../lines/aseptic-line.md) |
-| `docs/` | aseptic-line (the working notes) | Lines | Markdown | below |
-| `aaspire/` | aaspire (this site) | main | Markdown, draw.io | [This site](../how-to/this-site.md) |
+| Pillar | Repository | What it is | Page |
+| --- | --- | --- | --- |
+| AAS | [ontologies](https://github.com/AAU-AASPIRE/ontologies) | ARSO, APSO, AProSO, PPRL and the vocabulary | [Ontologies](../aas/ontologies.md) |
+| AAS | [aas-model](https://github.com/AAU-AASPIRE/aas-model) | The lab's AAS model: types, templates, instances (a placeholder until it merges upstream) | [aas-model](../aas/aas-model.md) |
+| Planning | [modplan](https://github.com/AAU-AASPIRE/modplan) | Plans a new skill from a module's capabilities | [modplan](../planning/modplan.md) |
+| Integration | [modreg](https://github.com/AAU-AASPIRE/modreg) | Builds, checks, derives and publishes the AASs; the registration and skill service | [Registration service](../integration/registration.md) |
+| Integration | [modlink](https://github.com/AAU-AASPIRE/modlink) | Runs a module's skills over OPC UA from its AAS | [modlink](../integration/modlink.md) |
+| Integration | [aas-camel-dmp](https://github.com/AAU-AASPIRE/aas-camel-dmp) | The data-mapping processor (Tristan's, moving here) | [DMP](../integration/dmp.md) |
+| Reconfiguration | [modsync](https://github.com/AAU-AASPIRE/modsync) | Keeps a running IEC 61499 program in step with its AAS | [modsync](../reconfiguration/modsync.md) |
+| Reconfiguration | [iec61499-skill-lib](https://github.com/AAU-AASPIRE/iec61499-skill-lib) | ModLib and modgen | [Skill library](../reconfiguration/skill-lib.md) |
+| Reconfiguration | [iec61499-mgmt-py](https://github.com/AAU-AASPIRE/iec61499-mgmt-py) | The client of FORTE's management protocol | [Management library](../reconfiguration/mgmt.md) |
+| Reconfiguration | [forte-runtime](https://github.com/AAU-AASPIRE/forte-runtime) | FORTE for the PC and the Pi, our patches, the Pi installer | [FORTE runtime](../reconfiguration/runtime.md) |
+| Execution | [AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS) | The multi-agent orchestrator (package `lineagents`) | [Line agents](../execution/agents.md) |
+| Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller | [Planar controller](../execution/planar-controller.md) |
+| Execution | [module-py](https://github.com/AAU-AASPIRE/module-py) | A module run in Python (modpy), for the robots | |
+| Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) | The BaSyx web UI, our fork: Process Sequence, the skill editor, the Configurator | [Web UI](../interfaces/web-ui.md) |
+| Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack, the Pi tooling, the bench tools | [Deployment](../deployment/deploy.md) |
+| Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's line: specs, generated programs, example AASs, evaluation | [The aseptic line](../lines/aseptic-line.md) |
+| Main | [aaspire](https://github.com/AAU-AASPIRE/aaspire) | This site, the repositories' map, the workspace | [This site](../how-to/this-site.md) |
 
-## How they will come together
+## How they come together
 
-- **Only `aaspire` has submodules**, one level deep, in folders by pillar. Every other repository
-  depends on the others by version: Python packages by tag, the ontologies as a package, container
-  images by tag, FORTE by release.
-- **One Python environment for development**: `aaspire` as a workspace with every Python part
-  installed editable; the C++, Java and TypeScript parts build as images.
-- **One command for the line in simulation**: a `compose.yaml` that starts the server stack, the
-  simulated modules and one orchestrator.
+- **Side by side, no submodules.** For development every repository is cloned into one folder
+  (`AAU-AASPIRE/<repository>`) by `aaspire/workspace/clone.ps1` (or `clone.sh`), which also installs the
+  Python parts editable. Each finds the others beside it: the tools the ontologies, modgen the line's
+  specs, the Pi tooling FORTE, the lab stack the DMP and the web UI for its images.
+- **Dependencies by repository.** Each Python part declares the others it needs as Git dependencies
+  of the organization's repositories; the lab stack's images are built from the folder that holds them.
 - **Versions**: the parts by SemVer, `aaspire` by date (`2026.11` with the CIRP paper, `2027.01` with
   the demo).
 
-Pinned, not the lab's: Eclipse 4diac FORTE, BaSyx's images, BehaviorTree.CPP, Groot2,
-unified-planning, the IDTA templates. The project's first stack, AP2030-UNS (PackML stations over MQTT
-run by behaviour trees), is AASPIRE's predecessor and is archived once what is still of use is copied
-out.
+Pinned, not the lab's: Eclipse 4diac FORTE, BaSyx's images, unified-planning, the IDTA templates.
 
 ## The working notes
 
-The repository's `docs/` folder holds the notes the work was done by: what was built and learnt
-([work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)), the
-design log, the plan ([next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)),
-the decisions, the papers' drafts and the figures. They stay with the line; this site is written from
-them for a reader who was not there. The plan for the framework, its repositories and this site is
-[framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md).
+The notes the work was done by (the design log, the plans, the decisions, onboarding) are in the
+private repository `aaspire-internal`, for the organization's members. This site is written from them
+for a reader who was not there; the reference documents (the models, the module rules, the tools) are
+its [Reference](../reference/aas-models.md) section.
