@@ -11,7 +11,12 @@ with agents that bid for the steps.
 
 **Documentation:** <https://aaspire.readthedocs.io> (built from `docs/` in this repository).
 
+![AASPIRE: the web UI's apps on top, the AAS server in the middle with planning, integration,
+reconfiguration and execution around it, the aseptic line below](docs/figures/framework.png)
+
 ## The repositories
+
+![The repositories of AAU-AASPIRE by pillar, and where each came from](docs/figures/repository-map.png)
 
 | Pillar | Repository | What it is |
 | --- | --- | --- |
@@ -20,7 +25,7 @@ with agents that bid for the steps.
 | Planning | [modplan](https://github.com/AAU-AASPIRE/modplan) | Plans new skills for a module from its Capability Description (HTN; PDDL and HDDL export) |
 | Integration | [modreg](https://github.com/AAU-AASPIRE/modreg) | Builds, checks, derives and publishes the AASs; the registration and skill service |
 | Integration | [modlink](https://github.com/AAU-AASPIRE/modlink) | Runs a module's skills over its OPC UA server, from its AAS |
-| Integration | aas-camel-dmp (moving here) | The data-mapping processor: the AASs' Operations call the modules, their values fill the time series |
+| Integration | [aas-camel-dmp](https://github.com/AAU-AASPIRE/aas-camel-dmp) (moving here from Tristan's) | The data-mapping processor: the AASs' Operations call the modules, their values fill the time series |
 | Reconfiguration | [modsync](https://github.com/AAU-AASPIRE/modsync) | Keeps a running IEC 61499 program in step with its AAS: reads it back, compares, reconfigures it online |
 | Reconfiguration | [iec61499-skill-lib](https://github.com/AAU-AASPIRE/iec61499-skill-lib) | ModLib, the IEC 61499 library for skill-based modules, and modgen, which generates a module's program |
 | Reconfiguration | [iec61499-mgmt-py](https://github.com/AAU-AASPIRE/iec61499-mgmt-py) | A Python client for the management protocol of Eclipse 4diac FORTE |
@@ -28,7 +33,7 @@ with agents that bid for the steps.
 | Execution | [AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS) | The multi-agent orchestrator: order, product and resource agents bidding over XMPP (VDI/VDE 2193) |
 | Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller: its shuttles as OPC UA modules, multi-shuttle planning |
 | Execution | [module-py](https://github.com/AAU-AASPIRE/module-py) | A module run in Python instead of IEC 61499, for devices FORTE does not reach (the robots) |
-| Interfaces | basyx-aas-web-ui (a fork, moving here) | The BaSyx web UI with the skill editor, matching and planning, and the Configurator |
+| Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) (a fork of BaSyx's) | The BaSyx web UI with the skill editor, matching and planning, and the Configurator |
 | Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack (BaSyx, MongoDB, the DMP, InfluxDB, Prosody, the services), the Pi tooling, the bench tools |
 | Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's aseptic filling line: module specs, generated programs, example AASs, evaluation |
 
