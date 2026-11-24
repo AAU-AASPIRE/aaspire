@@ -1,0 +1,17 @@
+# AASPIRE's repositories, cloned side by side into one folder (AAU-AASPIRE/<name>) by clone.ps1 or clone.sh.
+# name                 what
+aaspire                # this repository: the documentation site, the workspace
+ontologies             # ARSO, APSO, AProSO, PPRL and the vocabulary
+aas-model              # the lab's AAS model (types, templates, instances)
+modreg                 # builds, checks, derives and publishes the AASs; the registration and skill service
+modsync                # keeps a running IEC 61499 program in step with its AAS
+modplan                # plans new skills from a module's capabilities
+modlink                # runs a module's skills over OPC UA
+AAS-MAS                # the multi-agent orchestrator
+iec61499-skill-lib     # ModLib and modgen
+iec61499-mgmt-py       # the client of FORTE's management protocol
+forte-runtime          # FORTE for the PC and the Raspberry Pi, its patches, the Pi installer
+module-py              # a module run in Python (modpy)
+planar-controller      # the planar table's controller (OPC UA)
+deploy                 # the lab stack, the Pi tooling, the bench tools
+aseptic-line           # the lab's line: module specs, generated programs, examples, evaluation

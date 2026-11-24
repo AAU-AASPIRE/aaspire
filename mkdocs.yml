@@ -1,4 +1,4 @@
-# AASPIRE's documentation site. Build and serve it from this folder:
+# AASPIRE's documentation site (https://aaspire.readthedocs.io once Read the Docs builds it). Here:
 #   python -m mkdocs serve        # http://127.0.0.1:8000, rebuilt on every save
 #   python -m mkdocs build --strict
 # How the pages and the figures are made: docs/how-to/this-site.md.
@@ -8,9 +8,9 @@ site_description: >-
   Administration Shell. The framework of the AP2030 project.
 site_author: AAU Smart Production Lab
 copyright: AAU Smart Production Lab, the AP2030 project
-repo_url: https://github.com/AAUSmartProductionLab/iec61499-mgmt-py
-repo_name: iec61499-mgmt-py
-edit_uri: edit/main/aaspire/docs/
+repo_url: https://github.com/AAU-AASPIRE/aaspire
+repo_name: AAU-AASPIRE/aaspire
+edit_uri: edit/main/docs/
 docs_dir: docs
 
 theme:
