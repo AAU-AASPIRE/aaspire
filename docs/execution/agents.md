@@ -2,9 +2,9 @@
 
 <span class="pillar execution">Execution</span> `lineagents`: the multi-agent orchestrator. A product
 agent per unit ordered walks its product's recipe and asks for one step at a time; a resource agent per
-module and per shuttle bids for the steps its resource can carry out and carries out the steps it wins.
-SPADE over XMPP, speaking the I4.0 language of VDI/VDE 2193. Folder `line-agents/`; becomes the
-`lineagents` repository.
+module and per transport bids for the steps its resource can carry out and carries out the steps it
+wins. SPADE over XMPP, speaking the I4.0 language of VDI/VDE 2193. Repository
+[AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS).
 
 <figure markdown="span">
   [![Orders starting a product agent per unit; the bidding between a product agent and the resource
@@ -18,16 +18,16 @@ SPADE over XMPP, speaking the I4.0 language of VDI/VDE 2193. Folder `line-agents
 
 | Part | Runs | Does |
 | --- | --- | --- |
-| A module | its Raspberry Pi: FORTE and the module's program | Occupation, its states, its skills over OPC UA; announces itself |
+| A module | its own controller: FORTE and the module's program | Occupation, its states, its skills over OPC UA; announces itself |
 | Its AAS | the AAS server | What it is and offers |
 | **The manager** | the server (`python -m lineagents`) | A resource agent for every module the AAS server holds, started on the server's MQTT events and stopped when the AAS goes; the order agent |
 | **The order agent** | in the manager | Takes an order (product, quantity) over XMPP or HTTP and starts a product agent per unit |
 | **A product agent** | in the manager | Walks its product's steps: calls for proposals, chooses, has the product carried to the module, reports to whoever ordered |
 | **A resource agent** | in the manager | Bids what its resource offers; creates a described skill first when its bid is accepted; runs the skill |
 
-Agents run on the server, not on the Pis: the Pi runs the module's control program and nothing that
-decides. The module stays what it is delivered as, an IEC 61499 program and an AAS, and the agents
-stay replaceable.
+The agents run on the server, not on the modules' devices: a device runs the module's control program
+and nothing that decides. The module stays what it is delivered as, an IEC 61499 program and an AAS,
+and the agents stay replaceable.
 
 ## The bidding
 
@@ -36,11 +36,11 @@ every resource agent. Each answers with a **proposal** (the offered capability t
 the skill that realizes it, whether it is built or only described) or a **refusal**. A proposal is
 binding: the resource refuses others, saying it is busy, until the product agent decides. The product
 agent takes a proposal whose skill is built before one that needs a reconfiguration, has the product
-carried to the module by a shuttle, **accepts** it and rejects the rest; the resource agent **informs**
-of the result or of the failure. A failed step is asked for again of the others.
+carried to the module, **accepts** it and rejects the rest; the resource agent **informs** of the
+result or of the failure. A failed step is asked for again of the others.
 
 Custody decides who may carry a product: a resource holds a product from the Receiving it carried out
-until the Releasing, and only the shuttle that holds a product transports it.
+until the Releasing, and only the transport that holds a product moves it.
 
 ## Reaching the module
 
@@ -53,20 +53,19 @@ until the Releasing, and only the shuttle that holds a product transports it.
 ## Use it
 
 ```powershell
-python -m pip install -e ".[agents]"
-python -m lineagents --aas http://localhost:8081 --embedded                        # a resource agent per module
-python -m lineagents --aas http://localhost:8081 --embedded --order Vial2mLAAS:3   # ... and three vials
-python -m lineagents --aas http://localhost:8081 --mqtt localhost:1883 --http 8095  # in the lab stack (Prosody)
+python -m pip install -e AAS-MAS
+python -m lineagents --aas http://localhost:8081 --embedded                          # a resource agent per module
+python -m lineagents --aas http://localhost:8081 --embedded --order <Product>AAS:3   # ... and three units
+python -m lineagents --aas http://localhost:8081 --mqtt localhost:1883 --http 8095    # in the server stack (Prosody)
 ```
 
-`--embedded` runs SPADE's own XMPP server in the process; in the lab stack the agents use Prosody.
+`--embedded` runs SPADE's own XMPP server in the process; in the server stack the agents use Prosody.
 `--executor opcua|dmp|simulated` chooses how skills run; `--http` takes orders over HTTP too
-(`POST /orders {"product": "Vial2mLAAS", "quantity": 3}`).
+(`POST /orders {"product": "<Product>AAS", "quantity": 3}`).
 
-Built since 30 October 2026: discovery to agent within seconds, bidding, transport by the shuttles with
-custody (on simulated shuttles), a step that needs a reconfiguration. To come before the demo in
-January: the loading and unloading modules, the agents on the filling Pi, a planned skill in a bid,
-failure handling, the Orders app.
+Start with `--executor simulated` to watch the bidding without any hardware, then switch to `opcua`
+against [a module on a PC](../how-to/simulation.md).
 
-Read further: [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md),
-[agents-literature.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents-literature.md).
+Built: discovery to agent within seconds, bidding, transport with custody (on simulated shuttles), a
+step that needs a reconfiguration. Still to come: a planned skill in a bid, failure handling, the
+Orders app.

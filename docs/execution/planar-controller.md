@@ -1,8 +1,11 @@
 # Planar controller
 
-<span class="pillar execution">Execution</span> `planar-controller`: controls a Planar Motor table and
-offers it over OPC UA, built like the generated IEC 61499 modules, so the orchestrators treat the table
-and each shuttle as modules. Python in Docker. Submodule `planar-controller/`.
+<span class="pillar execution">Execution</span> How to bring a machine with its own controller into
+the line: wrap it so that it offers the same interface as every IEC 61499 module (occupation, PackML
+states, skills over OPC UA) and give it an AAS. The orchestrators then treat it as one more module.
+`planar-controller` does this for a Planar Motor table, offering the table and each shuttle as
+modules; follow the same pattern for a robot, a conveyor or any other machine. Python in Docker.
+Repository [planar-controller](https://github.com/AAU-AASPIRE/planar-controller).
 
 <figure markdown="span">
   [![The table with its xbots on a grid of flyways, the controller and its modules over OPC UA, and its
@@ -25,7 +28,9 @@ The table (`PlanarTable`) and one module per xbot (`PlanarShuttle<N>`), in the n
 | `Equipment/Xbot/X`, `Y`, `Rz`, `XbotState` | a shuttle's live pose |
 | `Equipment/PMC/Connected`, `Columns`, `Rows`, `FlywaySize`, `Holes` | the table's layout as the PMC reports it |
 
-Every method answers `[Accepted, ErrorID]` at once; an accepted move ends when the xbot has arrived.
+This is the interface to copy for your own wrapper: the same folders, the same methods with a session
+id, the same states and the same `[Accepted, ErrorID]` answers. Every method answers at once; an
+accepted move ends when the xbot has arrived.
 The table's Reset connects to the PMC, takes mastership and levitates the xbots; its Stop and Abort
 reach every shuttle, so one Reset and one Start of the table bring everything up.
 
@@ -38,14 +43,14 @@ reads at every Reset.
 
 `modreg profile planar` describes the table and each shuttle as modules, with the table's frame
 (Columns, Rows, FlywaySize) and the flyways' coordinates. Each shuttle gets a resource agent that
-receives a product, carries it to a module's station and releases it ([line agents](agents.md)).
+receives a product, carries it to a module's transfer point and releases it ([line agents](agents.md)).
 
 ## Use it
 
 ```bash
-./install.sh --pmc-ip 192.168.10.100 --autostart     # on a Linux machine that reaches the PMC
+./install.sh --pmc-ip <PMC address> --autostart      # on a Linux machine that reaches the PMC
 docker compose up -d --build                          # or from a clone; settings in .env
 PMC_IP=127.0.0.1 AUTOSTART=1 python -m planar         # without Docker, against the PMC's simulator
 ```
 
-The controller's own README in the submodule lists every setting and error id.
+The controller's own README lists every setting and error id.
