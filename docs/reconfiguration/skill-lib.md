@@ -1,25 +1,26 @@
 # Skill library
 
-<span class="pillar reconfiguration">Reconfiguration</span> In `aaspire-tools`: ModLib, the library
-every module is built from (occupation, the PackML state manager, the skill state machine, parameter
-latches, flow blocks, IO blocks), and `modgen`, which generates a module's 4diac project from its
-module spec. Folders `ModLib/`, `stdtypes/` and `modgen/` of aaspire-tools.
+<span class="pillar reconfiguration">Reconfiguration</span> ModLib, the IEC 61499 library every module
+is built from (occupation, the PackML state manager, the skill state machine, parameter latches, flow
+blocks, IO blocks), and `modgen`, which generates a module's 4diac project from its module spec.
+Folders `ModLib/`, `stdtypes/` and `modgen/` of
+[aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools).
 
 <figure markdown="span">
   [![A module spec on the left, what modgen writes in the middle (ModLib and the module's project), and
   the application as FORTE runs it on the right: the INIT chain from START down to the composite skill
-  Dispensing](../figures/skill-lib.png)](../figures/skill-lib.png)
+  SkillA](../figures/skill-lib.png)](../figures/skill-lib.png)
   <figcaption>From the spec, modgen writes the library and the module's project; the application is one
   INIT chain from the resource's START: the module level, equipment, primitives, procedures, then the
   composite skills, each a subapplication.</figcaption>
 </figure>
 
-## The module spec
+## Write a module spec
 
-A module spec (YAML, `cell/modules/<module>.yaml`) is the vendor-side description a module is
-generated from:
+A module spec (YAML, `modules/<module>.yaml` in your line's repository) describes the module you are
+building:
 
-- **targets**: where it runs; `pc` with its IO simulated over Modbus, `pi` with GPIO and PWM;
+- **targets**: where it runs; `pc` with its IO simulated over Modbus, `pi` with real GPIO and PWM;
 - **equipment**: each item's IO points, an address per target, and its commands;
 - **skill primitives**: one equipment command until a sensor condition or a time;
 - **module level skills**: parameters and a flow of primitives;
@@ -44,24 +45,29 @@ and the same skill generated from a spec are the same program; a test compares t
 flow.
 
 The library's types are compiled into FORTE once, from ModLib; each module's project declares them so
-the IDE can open it on its own. The generated projects are opened in the 4diac IDE from the repository
-without copying them: positions arranged in the IDE are kept when the projects are generated again, and
-only what overlaps is spread.
+the IDE can open it on its own. Open the generated projects in the 4diac IDE from the repository
+without copying them: positions you arrange in the IDE are kept when the projects are generated again,
+and only what overlaps is spread.
+
+You do not have to generate a module: a program written by hand in the 4diac IDE inside the same
+shell is as good, as long as it follows the [module rules](../reference/module-rules.md).
 
 ## Use it
 
+modgen finds the line's specs in `$MODGEN_CELL`, else in `./cell`; point it at your own line's folder:
+
 ```powershell
-cd aseptic-line
+cd aseptic-line                                   # or set MODGEN_CELL to your line's folder
 python -m modgen                                  # ModLib and every module's project
-../forte-runtime/check-project.ps1 -ProjectDir cell/control/FillingModule   # the 4diac IDE's own checks, headless
+../forte-runtime/check-project.ps1 -ProjectDir cell/control/<Module>   # the 4diac IDE's own checks, headless
 cd ../aaspire-tools
 python -m pytest -q tests/test_modgen.py          # the generator against the committed projects
 ```
 
-A change to the generator is committed with the regenerated projects; a test generates every project
-again and compares. A new or changed block type needs a new [FORTE](runtime.md).
+Commit a change to the generator with the regenerated projects; a test generates every project again
+and compares. A new or changed block type needs a new [FORTE](runtime.md).
 
-Read further: [module-rules.md](../reference/module-rules.md),
-[building-skills.md](../reference/building-skills.md)
-(a new skill, primitive or piece of equipment), [filling-program.md](../reference/filling-program.md)
-(the filling program block by block).
+Read further: [how a module is built: the rules](../reference/module-rules.md),
+[building skills and equipment](../reference/building-skills.md)
+(a new skill, primitive or piece of equipment), [the filling program](../reference/filling-program.md)
+(a module program block by block).

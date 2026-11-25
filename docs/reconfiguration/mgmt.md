@@ -3,7 +3,8 @@
 <span class="pillar reconfiguration">Reconfiguration</span> `iec61499_mgmt`: Eclipse 4diac FORTE's
 management protocol in Python, and what is built on it: a 4diac system flattened into commands, boot
 files, a type library with FORTE's type hashes, plans from one program to another, and read-back.
-Folder `iec61499-mgmt-py/`; stays the `iec61499-mgmt-py` repository.
+Use it when you need to talk to a FORTE from Python. Repository
+[iec61499-mgmt-py](https://github.com/AAU-AASPIRE/iec61499-mgmt-py).
 
 <figure markdown="span">
   [![What the library reads on the left, its modules in the middle with the protocol below them, and
@@ -28,24 +29,24 @@ Folder `iec61499-mgmt-py/`; stays the `iec61499-mgmt-py` repository.
 ```python
 from iec61499_mgmt.protocol import Client, Command
 
-with Client("192.168.0.203", 61499) as forte:
+with Client("<module host>", 61499) as forte:
     fbs = forte.execute(Command(op="query_fbs", resource="RES")).fbs        # every block: name, type
-    src = "Filling_pi.Module.State"
+    src = "<Application>.Module.State"
     state = forte.execute(Command(op="read", resource="RES", source=src)).read_value(src)
 ```
 
 A program runs inside its application's container, so a name is `<Application>.<Block>.<Pin>`; the
-resource's own `START` block is outside. FORTE's port 61499 has no login: it belongs on the lab's
+resource's own `START` block is outside. FORTE's port 61499 has no login: keep it on a trusted
 network only. Two things to avoid: deleting a resource with a GPIOChip in it (FORTE 3.3 crashes), and
 killing a resource that does not exist (FORTE shuts down). A program is replaced by a new boot file
 and a restart.
 
 ```powershell
-python -m iec61499_mgmt boot --system cell/control/FillingModule/FillingModule.sys --application Filling --out forte.fboot
-python -m iec61499_mgmt types --types-dir "cell/control/FillingModule/Type Library" --host 127.0.0.1 --out types.json
+python -m iec61499_mgmt boot --system <Project>/<Project>.sys --application <Application> --out forte.fboot
+python -m iec61499_mgmt types --types-dir "<Project>/Type Library" --host 127.0.0.1 --out types.json
 python -m iec61499_mgmt plan --current current.json --desired desired.json --library types.json --out plan.json
 python -m iec61499_mgmt schema network --out network.schema.json   # the JSON contracts: network, patch, plan, library
 ```
 
-Used by [modsync](modsync.md) (reading and changing online), `deploy/pi.py` (boot files), modgen's
-tests and the evaluation.
+Used by [modsync](modsync.md) (reading and changing online), `deploy/pi.py` (boot files) and modgen's
+tests.

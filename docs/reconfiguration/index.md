@@ -3,13 +3,14 @@
 <span class="pillar reconfiguration">Reconfiguration</span> A module's AAS is its desired state. A
 reconfiguration is a change to that AAS, which the tools then carry into the running IEC 61499
 program, online where the rules allow it. Who made the change (an engineer in the Skill Editor, a
-planner, an agent) is a separate matter.
+planner, an agent) does not matter to the tools: you change the AAS, they change the program.
 
 ## The module rules: the contract
 
 The tools rely on rules, not on the generator: a program that follows them can be verified, operated
 and given a new skill from its AAS and its running program alone, whether it was generated or written
-by hand in the 4diac IDE. A module names the rule set it follows in its AAS (`RuleSet`).
+by hand in the 4diac IDE. A module names the rule set it follows in its AAS (`RuleSet`). Build your
+own modules by these rules and every tool on this site works with them:
 
 1. **The shell**, fixed for every module: one application on one FORTE resource, published below
    `/Objects/<Module>` on its OPC UA server; `Occupation` (who may command it) and `Module` (its PackML
@@ -43,9 +44,9 @@ that runs, so it is created in any state, even while another skill executes.
 | aaspire-tools: modsync | The running program against its AAS: verify, change online, record, the IDE project of what runs | [modsync](modsync.md) |
 | aaspire-tools: ModLib, modgen | ModLib (the module library), modgen (spec to 4diac project), the module rules | [Skill library](skill-lib.md) |
 | iec61499-mgmt-py | FORTE's management protocol in Python, boot files, `.sys` flattening, read-back | [Management library](mgmt.md) |
-| forte-runtime | FORTE built with every module's block types, for the PC and the Raspberry Pi | [FORTE runtime](runtime.md) |
+| forte-runtime | FORTE built with your modules' block types, for the PC and for edge devices | [FORTE runtime](runtime.md) |
 | Skill Editor | A composite skill written as a flow, in the web UI | [Web UI](../interfaces/web-ui.md) |
 
-Read further: [module-rules.md](../reference/module-rules.md),
-[pipeline.md](../reference/pipeline.md),
-[mapping.md](../reference/mapping.md) (an AAS skill as blocks).
+Read further: [how a module is built: the rules](../reference/module-rules.md),
+[from AAS to running code, and back](../reference/pipeline.md),
+[from the AAS to IEC 61499 and back](../reference/mapping.md) (an AAS skill as blocks).

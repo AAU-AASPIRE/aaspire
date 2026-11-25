@@ -2,15 +2,15 @@
 
 <span class="pillar reconfiguration">Reconfiguration</span> Keeps a running IEC 61499 program and its AAS
 in step. It reads what runs over FORTE's management protocol, compares it with what the AAS describes,
-changes the program online where the module rules allow it, verifies the change and records it. Folder
-`aas61499-tools/modsync`; becomes the `modsync` repository.
+changes the program online where the module rules allow it, verifies the change and records it. A
+package of [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools).
 
 <figure markdown="span">
   [![The module's AAS on the left, modsync's six steps in the middle, FORTE and its boot file on the
   right](../figures/modsync.png)](../figures/modsync.png)
   <figcaption>What runs (1) and what is wanted (2) are compared (3); what may change online is guarded
-  (4), applied (5), verified and recorded (6). BottomUpFilling is described in the AAS and created
-  while the module runs.</figcaption>
+  (4), applied (5), verified and recorded (6). SkillX is described in the AAS and created while the
+  module runs.</figcaption>
 </figure>
 
 ## The six steps
@@ -35,39 +35,45 @@ changes the program online where the module rules allow it, verifies the change 
    every instance with its block type and hash.
 
 **modsync project** goes the other way: FORTE keeps the program, not the 4diac project, so the program
-read back by the rules becomes an IDE project again, with the layout arranged in the IDE.
+read back by the rules becomes an IDE project again, with the layout arranged in the IDE. Use it when
+you need to look at what a module runs and have no project for it.
 
 ## What an online change costs
 
+Measured on the example line's filling module:
+
 | Skill | Flow | Instances | Connections | Management commands |
 | --- | --- | --- | --- | --- |
-| Dispensing | 4 steps | 13 | 63 | 142 |
-| DoubleDose | 5 steps | 15 | 73 | 165 |
-| Checked | 6 steps, two decisions | 23 | 98 | 224 |
-| Ready | a parallel block of two steps | 5 | 31 | 64 |
+| A sequence of 4 steps | 4 steps | 13 | 63 | 142 |
+| A sequence of 5 steps | 5 steps | 15 | 73 | 165 |
+| With decisions | 6 steps, two decisions | 23 | 98 | 224 |
+| A parallel block | two steps in parallel | 5 | 31 | 64 |
 
-DoubleDose was created in 0.04 s on a PC and in 1.6 s in all on a Raspberry Pi 5, most of it the boot
-file over SSH, while another skill ran. Verifying a module against its AAS takes about 0.15 s over the
-network.
+A five-step skill was created in 0.04 s on a PC and in 1.6 s in all on a Raspberry Pi 5, most of it
+the boot file over SSH, while another skill ran. Verifying a module against its AAS takes about 0.15 s
+over the network.
 
 ## Use it
 
+`<aas>` is a folder of AAS files or an AAS server (`http://<host>:8081`); `--shell` picks the module's
+AAS when there are several:
+
 ```powershell
-python -m modsync verify aas --host 192.168.0.203                 # is the module what its AAS describes?
-python -m modsync verify aas --host 192.168.0.203 --record        # ... and write down what was found
-python -m modsync reconfigure http://localhost:8081 --shell FillingModuleAAS --dry-run   # what would change
-python -m modsync reconfigure aas --host 192.168.0.203            # change it online, verify, record
-python -m modsync project --host 192.168.0.203                    # the 4diac project of what runs (projects/)
-python -m modsync pull --host 192.168.0.203                       # which module runs there, its drift, its AAS
+python -m modsync verify <aas> --host <module host>                  # is the module what its AAS describes?
+python -m modsync verify <aas> --host <module host> --record         # ... and write down what was found
+python -m modsync reconfigure <aas> --shell <Module>AAS --dry-run    # what would change
+python -m modsync reconfigure <aas> --host <module host>             # change it online, verify, record
+python -m modsync project --host <module host>                       # the 4diac project of what runs (projects/)
+python -m modsync pull --host <module host>                          # which module runs there, its drift, its AAS
 ```
 
-The AASs are a folder of AAS files or an AAS server; `reconfigure` puts the changed submodels back where
-they came from, and the record goes to `--records` (a folder, `records/` by default, or the registration
-service). Without `--host`, the record says where the module is managed. `--force` writes values even
-while the module runs or is occupied.
+`reconfigure` puts the changed submodels back where they came from, and the record goes to `--records`
+(a folder, `records/` by default, or the registration service). Without `--host`, the record says where
+the module is managed. `--force` writes values even while the module runs or is occupied.
 
 The Python functions behind the commands are in `modsync/desired.py` (`load`, `read`, `differences`,
-`reconfigure`, `record`, `store`); the agents call them to create a skill before they run it.
+`reconfigure`, `record`, `store`); call them from your own code, as the agents do to create a skill
+before they run it.
 
 ## What it does not do
 
@@ -75,8 +81,8 @@ It never calls a skill ([modlink](../integration/modlink.md) does). It never rem
 online: that needs a restart, and the AAS does not hold the wiring of the rest of the program from
 which a whole boot file could be made. It changes no block types.
 
-Beside the AAS mode, modsync has an older mode against a module spec (`pull`, `push`, `watch`), the
-vendor's and the lab's development tool; it is to be folded into the AAS mode.
+Beside the AAS mode, modsync has a mode against a module spec (`pull`, `push`, `watch`), a development
+tool for whoever builds the module; it is to be folded into the AAS mode.
 
-Read further: [tools.md](../reference/tools.md),
-section 3; [mapping.md](../reference/mapping.md).
+Read further: [how the tools work](../reference/tools.md), section 3;
+[from the AAS to IEC 61499 and back](../reference/mapping.md).
