@@ -8,5 +8,6 @@ AAS-MAS                # the multi-agent orchestrator
 iec61499-mgmt-py       # the client of FORTE's management protocol
 forte-runtime          # FORTE for the PC and the Raspberry Pi, its patches, the Pi installer
 planar-controller      # the planar table's controller (OPC UA)
+iec61499-opcua-hmi     # the modules' HMI and its module simulator
 deploy                 # the lab stack, the Pi tooling, the bench tools
 aseptic-line           # the lab's line: module specs, generated programs, examples, evaluation
