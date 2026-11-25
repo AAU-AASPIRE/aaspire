@@ -1,13 +1,19 @@
 # From the AAS to IEC 61499 and back
 
-Material for the paper (27 Oct 2026): how a module's AAS becomes the target state of its control
-program, how its elements map to IEC 61499 blocks, and the few design choices that make that mapping
-cheap in both directions. Figures: `mapping.drawio` (three pages: a
-skill and its blocks; the flow kinds as library blocks; the AAS as the target) and, smaller for the
-paper, `skill-blocks.drawio` (a primitive is a block type, a
-composite a subapplication of instances; what the AAS says of a sequence and a parallel block, and
-the wiring the rules draw around it). How the tools run is
-[tools.md](tools.md); the rules themselves are [module-rules.md](module-rules.md).
+How a module's AAS becomes the target state of its control program, how its elements map to IEC 61499
+blocks, and the few design choices that make that mapping cheap in both directions. Read it to see
+what a skill in the AAS turns into on the running module. How the tools run is
+[how the tools work](tools.md); the rules themselves are [the module rules](module-rules.md).
+
+??? note "How this page came about"
+    Material for the paper (27 Oct 2026): how a module's AAS becomes the target state of its control
+    program, how its elements map to IEC 61499 blocks, and the few design choices that make that mapping
+    cheap in both directions. Figures: `mapping.drawio` (three pages: a
+    skill and its blocks; the flow kinds as library blocks; the AAS as the target) and, smaller for the
+    paper, `skill-blocks.drawio` (a primitive is a block type, a
+    composite a subapplication of instances; what the AAS says of a sequence and a parallel block, and
+    the wiring the rules draw around it). How the tools run is
+    [tools.md](tools.md); the rules themselves are [module-rules.md](module-rules.md).
 
 ## 1. The AAS is the target state
 

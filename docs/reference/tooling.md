@@ -1,11 +1,16 @@
 # Tools and how the work is checked
 
-The working recipes behind [onboarding.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/onboarding.md): testing, changing the 4diac programs,
-talking to a FORTE, running a whole module, deploying to a Pi, and building and publishing the
-AASs. Commands run from the repository root with the repository's venv
-(`.venv/Scripts/python.exe`, shown as `python`) and `PYTHONUTF8=1`, unless a folder is named.
-Learnings behind these recipes are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); search it before debugging something odd.
-How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md).
+Working recipes: testing, changing the 4diac programs, talking to a FORTE, running a whole module,
+deploying to a device, and building and publishing the AASs. How each tool works inside is
+[how the tools work](tools.md).
+
+??? note "How this page came about"
+    The working recipes behind [onboarding.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/onboarding.md): testing, changing the 4diac programs,
+    talking to a FORTE, running a whole module, deploying to a Pi, and building and publishing the
+    AASs. Commands run from the repository root with the repository's venv
+    (`.venv/Scripts/python.exe`, shown as `python`) and `PYTHONUTF8=1`, unless a folder is named.
+    Learnings behind these recipes are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); search it before debugging something odd.
+    How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md).
 
 ## 1. Tests
 

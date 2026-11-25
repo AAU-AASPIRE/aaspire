@@ -1,16 +1,25 @@
 # How a module is built: the rules
 
-Rule set `https://smartproductionlab.aau.dk/rules/module/2` (27 Oct 2026): rule set 1 and, in
-section 3, a flow: parallel blocks and decisions. A program by rule set 1 follows rule set 2.
+The contract a module's program keeps so that the tools can verify it, operate it and give it a new
+skill online from its AAS and its running program alone. `modgen` generates modules that follow these
+rules, but you can write a module by hand in an IEC 61499 IDE inside the same shell and it is as good.
+A module names the rule set it follows in its AAS (Skills, `RuleSet`). Names in `<angle brackets>` are
+the module's own. This page describes rule set 2: rule set 1 and, in section 3, flows with parallel
+blocks and decisions; a program by rule set 1 follows rule set 2. A program that uses section 3's flows
+needs a FORTE built with the library's flow blocks.
 
-A module that follows these rules can be verified, operated and given a new skill online from its
-AAS and its running program alone. `modgen` generates such modules from a module spec, but the
-rules are the contract, not the generator: a module written by hand in an IEC 61499 IDE inside
-the same shell is as good. A module names the rule set it follows in its AAS (Skills, `RuleSet`).
-A program that uses section 3's flows needs a FORTE built with the library's flow blocks.
+??? note "How this page came about"
+    Rule set `https://smartproductionlab.aau.dk/rules/module/2` (27 Oct 2026): rule set 1 and, in
+    section 3, a flow: parallel blocks and decisions. A program by rule set 1 follows rule set 2.
 
-The structure of a generated module and the reasons behind it are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); the two
-lab modules in [modules.md](modules.md). Names in `<angle brackets>` are the module's own.
+    A module that follows these rules can be verified, operated and given a new skill online from its
+    AAS and its running program alone. `modgen` generates such modules from a module spec, but the
+    rules are the contract, not the generator: a module written by hand in an IEC 61499 IDE inside
+    the same shell is as good. A module names the rule set it follows in its AAS (Skills, `RuleSet`).
+    A program that uses section 3's flows needs a FORTE built with the library's flow blocks.
+
+    The structure of a generated module and the reasons behind it are in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md); the two
+    lab modules in [modules.md](modules.md). Names in `<angle brackets>` are the module's own.
 
 ## 1. The shell
 

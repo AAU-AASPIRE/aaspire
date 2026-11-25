@@ -1,34 +1,40 @@
 # The product, process and resource model
 
-The model the work proceeds by, decided on 26 Oct 2026 ([decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md)): which AASs
-there are, what each holds, which ontology each element is tied to and by which id, which
-application reads and writes what, and how a product's need becomes a change of an IEC 61499
-program. Each part says whether it is built. What the AASs built today hold, element by element, is
-in [aas-models.md](aas-models.md); the plan is in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md), section F.
+The model behind the AASs: which AASs there are, what each holds, which ontology each element is tied
+to and by which id, which application reads and writes what, and how a product's need becomes a change
+of an IEC 61499 program. Read it to understand why the AASs are split as they are before you extend
+them. What the AASs hold element by element is in [the AAS models](aas-models.md).
 
-Figures (draw.io; open them at app.diagrams.net or in the draw.io desktop app, and edit them there):
+??? note "How this page came about"
+    The model the work proceeds by, decided on 26 Oct 2026 ([decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md)): which AASs
+    there are, what each holds, which ontology each element is tied to and by which id, which
+    application reads and writes what, and how a product's need becomes a change of an IEC 61499
+    program. Each part says whether it is built. What the AASs built today hold, element by element, is
+    in [aas-models.md](aas-models.md); the plan is in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md), section F.
 
-| File | Page | Shows |
-| --- | --- | --- |
-| `ppr-models.drawio` | Models and ontologies | The three AASs with their submodels and references, and the ontologies their ids point into |
-| | Applications | Which application reads and writes which AAS, and which acts on the running module |
-| `reconfiguration-pipeline.drawio` | Reconfiguration pipeline | From a product's recipe through a changed skill to a changed IEC 61499 program, and back to the plan |
-| `skill-hierarchies.drawio` | Hierarchies | The line's, a module's and its components' AASs as the web UI's tree shows them: the bill of material names the module and its components; Dispensing's steps run the components' primitives |
-| | Recipe to process | The product's, the line's and the modules' AASs feed a process sequence (one card per step: what comes from which AAS); kept as the process AAS, whose rows are coloured by where they come from |
-| | Hierarchies (paper), Recipe to process (paper) | The same two, cut down for the paper: no title, only the rows the argument needs |
-| `module-tools.drawio` | Tools and FORTE | The tools (spec, modgen, 4diac project, build, deployment, AAS, modsync, modlink) above the filling module's program drawn as its function block network (as in the module architecture figure): the INIT chain, Dispensing with its wiring, and create, read, update and delete on it (the boot file; DoubleDose created online and appended; a step's constant written; deleting only by a new boot file); the OPC UA nodes the blocks serve |
-| | Tools and FORTE (paper) | The same, as small cards and Dispensing's network with the online change |
-| | Production system | The line as it stands, drawn isometrically (the ACOPOS 6D table and its shuttles, the four stations each with a Pi running FORTE, the Kuka robots at loading and unloading, the vial filled, stoppered and capped on its way), the inside of the filling module (the Pi, its program, the equipment on GPIO and PWM, its ports), and the server: the AAS environment with the product, process and resource AASs, the web UI, modreg, modsync, modlink, the transport control, and the agents and time series database still planned |
-| | Concept (isometric) | The idea in four layers floating above each other, drawn isometrically: the assets (the line), control (a Pi with FORTE per module, the transport controller), information (the AAS server with the product, process and resource AASs) and the applications (planner, skill editor, modreg, modsync, modlink, agents); dashed lines say what connects them |
-| | Layers (computers) | The line and five layers above it, drawn isometrically: the digital assets (each module's parts with their kind and IO, wired to its Pi; the robots and the transport); behaviour in IEC 61499 (FORTE per module, Dispensing's function block network, the PackML state machine, a skill's state machine); the AAS models and orchestration (a resource AAS, the product's recipe bound to the modules, agents; the AAS server, modreg, modsync, the orchestrator, the time series); the HMIs, MES, planning and scheduling (ERP, MES, planner, scheduling, skill editor, HMI, a schedule and the HMI sketched). The programs as the computers they run on |
-| | Layers (programs) | The same, with each program drawn as its window standing on its layer |
-| | Layers (illustrated) | The same layers drawn further: the stations open in front and reach over the vial with their tools, shuttles with black rims, names on signs above the stations; the programs as windows with the server they run on at the side; the agents as a product and miniature modules, the AASs as stacks, people at the planner and the HMI; the HMI with a state machine and buttons per module, a trend and alarms. Only the lines that matter, along x, y and z |
-| | Layers (slide) | The same layers for a slide: a few objects with a word or two on each, the layers apart, big cards naming them on the right |
-| `mapping.drawio` | AAS skill to IEC 61499, Flow kinds as blocks, The AAS as the target | Dispensing's AAS elements beside the blocks, values and connections they are (numbered to match), with its OPC UA nodes and the names that join them; each kind of step as its pattern of library blocks, and groups of conditions as chains; modsync's loop from the AAS and the running program to the commands, the check and the record ([mapping.md](mapping.md)) |
-| `slides.drawio` | 01 to 19, 06b | One figure per slide of the first deck (27 Oct; the slides are now made from `presentation/deck.drawio`, `deck-guide.md`): 16:9 pages, big type, few elements, no title of their own; 01 is the line alone, for the title slide; 06b the layers across a whole slide, drawn dimetrically so each layer is a long shelf |
+    Figures (draw.io; open them at app.diagrams.net or in the draw.io desktop app, and edit them there):
 
-They follow the style of the module architecture figure (Arial, grey panels, white cards, rounded
-pills, small blue tags, dashed for what is not built yet).
+    | File | Page | Shows |
+    | --- | --- | --- |
+    | `ppr-models.drawio` | Models and ontologies | The three AASs with their submodels and references, and the ontologies their ids point into |
+    | | Applications | Which application reads and writes which AAS, and which acts on the running module |
+    | `reconfiguration-pipeline.drawio` | Reconfiguration pipeline | From a product's recipe through a changed skill to a changed IEC 61499 program, and back to the plan |
+    | `skill-hierarchies.drawio` | Hierarchies | The line's, a module's and its components' AASs as the web UI's tree shows them: the bill of material names the module and its components; Dispensing's steps run the components' primitives |
+    | | Recipe to process | The product's, the line's and the modules' AASs feed a process sequence (one card per step: what comes from which AAS); kept as the process AAS, whose rows are coloured by where they come from |
+    | | Hierarchies (paper), Recipe to process (paper) | The same two, cut down for the paper: no title, only the rows the argument needs |
+    | `module-tools.drawio` | Tools and FORTE | The tools (spec, modgen, 4diac project, build, deployment, AAS, modsync, modlink) above the filling module's program drawn as its function block network (as in the module architecture figure): the INIT chain, Dispensing with its wiring, and create, read, update and delete on it (the boot file; DoubleDose created online and appended; a step's constant written; deleting only by a new boot file); the OPC UA nodes the blocks serve |
+    | | Tools and FORTE (paper) | The same, as small cards and Dispensing's network with the online change |
+    | | Production system | The line as it stands, drawn isometrically (the ACOPOS 6D table and its shuttles, the four stations each with a Pi running FORTE, the Kuka robots at loading and unloading, the vial filled, stoppered and capped on its way), the inside of the filling module (the Pi, its program, the equipment on GPIO and PWM, its ports), and the server: the AAS environment with the product, process and resource AASs, the web UI, modreg, modsync, modlink, the transport control, and the agents and time series database still planned |
+    | | Concept (isometric) | The idea in four layers floating above each other, drawn isometrically: the assets (the line), control (a Pi with FORTE per module, the transport controller), information (the AAS server with the product, process and resource AASs) and the applications (planner, skill editor, modreg, modsync, modlink, agents); dashed lines say what connects them |
+    | | Layers (computers) | The line and five layers above it, drawn isometrically: the digital assets (each module's parts with their kind and IO, wired to its Pi; the robots and the transport); behaviour in IEC 61499 (FORTE per module, Dispensing's function block network, the PackML state machine, a skill's state machine); the AAS models and orchestration (a resource AAS, the product's recipe bound to the modules, agents; the AAS server, modreg, modsync, the orchestrator, the time series); the HMIs, MES, planning and scheduling (ERP, MES, planner, scheduling, skill editor, HMI, a schedule and the HMI sketched). The programs as the computers they run on |
+    | | Layers (programs) | The same, with each program drawn as its window standing on its layer |
+    | | Layers (illustrated) | The same layers drawn further: the stations open in front and reach over the vial with their tools, shuttles with black rims, names on signs above the stations; the programs as windows with the server they run on at the side; the agents as a product and miniature modules, the AASs as stacks, people at the planner and the HMI; the HMI with a state machine and buttons per module, a trend and alarms. Only the lines that matter, along x, y and z |
+    | | Layers (slide) | The same layers for a slide: a few objects with a word or two on each, the layers apart, big cards naming them on the right |
+    | `mapping.drawio` | AAS skill to IEC 61499, Flow kinds as blocks, The AAS as the target | Dispensing's AAS elements beside the blocks, values and connections they are (numbered to match), with its OPC UA nodes and the names that join them; each kind of step as its pattern of library blocks, and groups of conditions as chains; modsync's loop from the AAS and the running program to the commands, the check and the record ([mapping.md](mapping.md)) |
+    | `slides.drawio` | 01 to 19, 06b | One figure per slide of the first deck (27 Oct; the slides are now made from `presentation/deck.drawio`, `deck-guide.md`): 16:9 pages, big type, few elements, no title of their own; 01 is the line alone, for the title slide; 06b the layers across a whole slide, drawn dimetrically so each layer is a long shelf |
+
+    They follow the style of the module architecture figure (Arial, grey panels, white cards, rounded
+    pills, small blue tags, dashed for what is not built yet).
 
 ## 1. Three kinds of AAS
 

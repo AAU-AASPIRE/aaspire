@@ -1,11 +1,18 @@
 # How the tools work: modgen, modsync, modlink, modplan
 
-A description for the paper's method and implementation sections, kept with the code (state of
-27 Oct 2026). Each tool is given by what it takes and gives, the algorithm it runs, and what it
-assumes. The rules the tools rely on are [module-rules.md](module-rules.md); the AAS they read is
-[aas-models.md](aas-models.md); how an AAS skill maps to IEC 61499 blocks, with figures, is
-[mapping.md](mapping.md); how to run them is [tooling.md](tooling.md); what changes in them before the
-repository is split is [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md), section 4.
+What each tool takes and gives, the algorithm it runs, and what it assumes: modgen, modsync, modlink and
+modplan. Read it when you need to know exactly what a tool does with your module. The rules the tools
+rely on are [the module rules](module-rules.md); the AAS they read is [the AAS models](aas-models.md);
+how an AAS skill maps to IEC 61499 blocks, with figures, is [from the AAS to IEC 61499](mapping.md);
+how to run them is [tools and how the work is checked](tooling.md).
+
+??? note "How this page came about"
+    A description for the paper's method and implementation sections, kept with the code (state of
+    27 Oct 2026). Each tool is given by what it takes and gives, the algorithm it runs, and what it
+    assumes. The rules the tools rely on are [module-rules.md](module-rules.md); the AAS they read is
+    [aas-models.md](aas-models.md); how an AAS skill maps to IEC 61499 blocks, with figures, is
+    [mapping.md](mapping.md); how to run them is [tooling.md](tooling.md); what changes in them before the
+    repository is split is [framework-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/framework-plan.md), section 4.
 
 ## 1. Three tools, one contract
 

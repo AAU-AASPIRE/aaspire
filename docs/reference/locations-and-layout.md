@@ -1,12 +1,18 @@
 # Locations, points and the planar table's layout
 
-Design of 27 Oct 2026, changed on 28 Oct from frames on Hierarchical Structures nodes to
-coordinates in Operational Data (ARSO 0.13, vocabulary 0.5, `modreg/frames.py`; the reasons in
-[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)), and the same day into aas-model's Variables (ARSO 0.14; the classes
-in aas-model's `submodel_templates/coordinates.py`). The planar table's AAS (section 3, `modreg/planar.py`) is built too.
-Every resource AAS says where it and its points are, relative to another coordinate, so that any
-point of interest (where a shuttle stands for the vial to be filled, where a robot picks or places)
-is known in the planar table's frame, which is what a shuttle is moved in.
+How a line says where things are. Every resource AAS says where it and its points are, relative to
+another coordinate, so that any point of interest (where a carrier stops for a product, where a robot
+picks or places) is known in the frame of the transport system that moves the products. The example is
+a planar motor table, whose AAS also holds its layout.
+
+??? note "How this page came about"
+    Design of 27 Oct 2026, changed on 28 Oct from frames on Hierarchical Structures nodes to
+    coordinates in Operational Data (ARSO 0.13, vocabulary 0.5, `modreg/frames.py`; the reasons in
+    [design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md)), and the same day into aas-model's Variables (ARSO 0.14; the classes
+    in aas-model's `submodel_templates/coordinates.py`). The planar table's AAS (section 3, `modreg/planar.py`) is built too.
+    Every resource AAS says where it and its points are, relative to another coordinate, so that any
+    point of interest (where a shuttle stands for the vial to be filled, where a robot picks or places)
+    is known in the planar table's frame, which is what a shuttle is moved in.
 
 ## 1. Coordinates, a tree of transforms
 

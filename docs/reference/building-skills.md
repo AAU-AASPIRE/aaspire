@@ -1,13 +1,23 @@
 # Building skills and equipment
 
-How to give a module a new skill, a new skill primitive or a new piece of equipment: in the module
-spec (the usual way), or by hand in the 4diac IDE. With one full example, what changes between one
-primitive and another, and how to export the types and rebuild FORTE when a primitive or a piece of
-equipment is new. Written on 28 Oct 2026 for the lab's engineers and students.
+How to give a module a new skill, a new skill primitive or a new piece of equipment: in the module spec
+(the usual way), or by hand in the 4diac IDE. With one full example, what changes between one primitive
+and another, and how to export the types and rebuild FORTE when a primitive or a piece of equipment is
+new. The example is the filling module of the example line; the steps are the same for any module.
 
-What the blocks of the filling program are and how a call travels through them is in
-[filling-program.md](filling-program.md); the rules every module keeps in
-[module-rules.md](module-rules.md). Read those first if the names below are new.
+What the blocks of a module program are and how a call travels through them is in
+[the filling program](filling-program.md); the rules every module keeps in
+[the module rules](module-rules.md). Read those first if the names below are new.
+
+??? note "How this page came about"
+    How to give a module a new skill, a new skill primitive or a new piece of equipment: in the module
+    spec (the usual way), or by hand in the 4diac IDE. With one full example, what changes between one
+    primitive and another, and how to export the types and rebuild FORTE when a primitive or a piece of
+    equipment is new. Written on 28 Oct 2026 for the lab's engineers and students.
+
+    What the blocks of the filling program are and how a call travels through them is in
+    [filling-program.md](filling-program.md); the rules every module keeps in
+    [module-rules.md](module-rules.md). Read those first if the names below are new.
 
 ## 1. Which kind of change is it?
 

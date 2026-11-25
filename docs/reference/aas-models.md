@@ -1,41 +1,48 @@
 # The AAS models: product, plan and resource
 
-What each AAS holds, which submodel templates it uses, what we changed in them, and how the
-submodels connect inside one AAS and across AASs. Written on 7 Oct 2026 so that the planner, the
-modules, the HMI and the AAS generator are described in one place; the resource side was rewritten
-on 8 Oct 2026 (a skill as its commands; components and the line as AASs of their own).
+Every element of the product, process and resource AASs as built: which submodel templates each AAS
+uses, what AASPIRE changes in them, and how the submodels connect inside one AAS and across AASs.
+Read it when you write a profile and need to know what goes where, or when a tool reads an element you
+do not recognise. The overview is the [AAS pillar](../aas/index.md); a whole line's AASs are in
+[the example line's AASs](aas-examples.md).
 
-**28 Oct 2026:** the types, templates and classes are aas-model's now (branch `lab-ppr-models`:
-`Module`, `Component`, `ProductionSystem`, `Product`, `Process`; its `docs/lab-aas.md` and a
-description per submodel in `docs/lab-submodels`). aas-model's Variables replace Operational Data
-(ARSO 0.14): a module's values are fields of time series there, each field's meaning its
-supplemental semantic id, and the AAS holds no value (the first step that day, a `VariableProp` per
-data point, was replaced the same evening); the coordinates are in `Variables/Measurements`. The
-process AAS is built, and the reference products' recipes name no equipment: the bindings are the
-process AAS's. The example line's AASs, three products and their processes, are in
-[aas-examples.md](aas-examples.md).
+??? note "How this page came about"
+    What each AAS holds, which submodel templates it uses, what we changed in them, and how the
+    submodels connect inside one AAS and across AASs. Written on 7 Oct 2026 so that the planner, the
+    modules, the HMI and the AAS generator are described in one place; the resource side was rewritten
+    on 8 Oct 2026 (a skill as its commands; components and the line as AASs of their own).
 
-**Since then (28 to 31 Oct 2026):** the DMP writes the series' rows into InfluxDB, and every call of
-a command is logged (`Variables/Log`, 29 Oct); `modreg serve` writes a product's process AAS from the planner's bindings
-(`POST /process/<product>`); the agents (`lineagents`) run a product's steps. The sections below say
-where this changed them.
+    **28 Oct 2026:** the types, templates and classes are aas-model's now (branch `lab-ppr-models`:
+    `Module`, `Component`, `ProductionSystem`, `Product`, `Process`; its `docs/lab-aas.md` and a
+    description per submodel in `docs/lab-submodels`). aas-model's Variables replace Operational Data
+    (ARSO 0.14): a module's values are fields of time series there, each field's meaning its
+    supplemental semantic id, and the AAS holds no value (the first step that day, a `VariableProp` per
+    data point, was replaced the same evening); the coordinates are in `Variables/Measurements`. The
+    process AAS is built, and the reference products' recipes name no equipment: the bindings are the
+    process AAS's. The example line's AASs, three products and their processes, are in
+    [aas-examples.md](aas-examples.md).
 
-It describes what is **built**, and says where a model exists only on paper. The target model
-(product, process and resource AAS, their ontologies and applications, decided 26 Oct) is in
-[ppr-model.md](ppr-model.md). Sources:
+    **Since then (28 to 31 Oct 2026):** the DMP writes the series' rows into InfluxDB, and every call of
+    a command is logged (`Variables/Log`, 29 Oct); `modreg serve` writes a product's process AAS from the planner's bindings
+    (`POST /process/<product>`); the agents (`lineagents`) run a product's steps. The sections below say
+    where this changed them.
 
-| What | Where it was read from |
-| --- | --- |
-| Resource AASs: line, module, component | `modreg` in this repository and the AASs it builds for the example line; ARSO 0.14 (`ontology/ARSO`) |
-| Product AAS, plan, stations of the planner | the demo data on the local AAS server (37 AASs, 31 sequences), which a newer planner than the pushed one wrote; and the planner's process sequence module (fork `basyx-aas-web-ui`, branch `feat/process-sequence-pharma`, commit `058a03e`) for its README and readers |
-| Product AAS and plan as built here | aas-model's `Product` and its templates (`templates/product`; `modreg/product.py` and `modreg/templates` until 28 Oct), and the three products of the example line (`cell/examples/products`) |
-| Intended product and process models | APSO 0.2, AProSO 0.1 and PPRL 0.2 (`ontology/`), [aas-implementation-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/archive/aas-implementation-plan.md) (30 Sep, the product and process parts). APSO and AProSO describe structures nothing builds and are to be remade (F5 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)) |
-| Deviations of the generator's resource AAS from IDTA | [IDTA_CONFORMANCE.md](https://github.com/AAU-AASPIRE/ontologies/blob/main/ARSO/IDTA_CONFORMANCE.md) |
+    It describes what is **built**, and says where a model exists only on paper. The target model
+    (product, process and resource AAS, their ontologies and applications, decided 26 Oct) is in
+    [ppr-model.md](ppr-model.md). Sources:
 
-Not seen: AASs on the lab's server, and the source of the planner version that is running locally.
+    | What | Where it was read from |
+    | --- | --- |
+    | Resource AASs: line, module, component | `modreg` in this repository and the AASs it builds for the example line; ARSO 0.14 (`ontology/ARSO`) |
+    | Product AAS, plan, stations of the planner | the demo data on the local AAS server (37 AASs, 31 sequences), which a newer planner than the pushed one wrote; and the planner's process sequence module (fork `basyx-aas-web-ui`, branch `feat/process-sequence-pharma`, commit `058a03e`) for its README and readers |
+    | Product AAS and plan as built here | aas-model's `Product` and its templates (`templates/product`; `modreg/product.py` and `modreg/templates` until 28 Oct), and the three products of the example line (`cell/examples/products`) |
+    | Intended product and process models | APSO 0.2, AProSO 0.1 and PPRL 0.2 (`ontology/`), [aas-implementation-plan.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/archive/aas-implementation-plan.md) (30 Sep, the product and process parts). APSO and AProSO describe structures nothing builds and are to be remade (F5 in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md)) |
+    | Deviations of the generator's resource AAS from IDTA | [IDTA_CONFORMANCE.md](https://github.com/AAU-AASPIRE/ontologies/blob/main/ARSO/IDTA_CONFORMANCE.md) |
 
-The example line built this way (the line, four modules, nine components and a product), with
-class diagrams, is in [aas-examples.md](aas-examples.md).
+    Not seen: AASs on the lab's server, and the source of the planner version that is running locally.
+
+    The example line built this way (the line, four modules, nine components and a product), with
+    class diagrams, is in [aas-examples.md](aas-examples.md).
 
 ## 1. The three at a glance
 

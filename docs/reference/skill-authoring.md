@@ -1,29 +1,36 @@
 # Authoring skills: the skill editor, the planner and a backend for both
 
-Proposal of 27 Oct 2026; decided the same day (phase 2 before the paper) and **built the same day:
-phases 1 and 2** (section 7). How the two web UI modules (the process sequence planner and the skill
-editor) are to change, so that:
+How skills are written in the web UI: the Skills submodel as an overview and a single skill in an
+editor; flows with branches, conditions and parallel steps; a new skill recommended from the ontology,
+starting from a requirement the line does not offer yet; and one backend that checks, derives and
+proposes for the Skill Editor and the Planner. The page records the design and its reasons; where the
+tools stand today is [how the tools work](tools.md).
 
-- the Skills submodel opens on an **overview**, and a single skill opens in the **editor**;
-- a skill can have **branches, conditions and parallel steps**, edited with the planner's own
-  flow editor instead of a list of steps;
-- a new skill is **recommended and partly made from the ontology**, starting from a product's
-  requirement the line does not offer yet;
-- one **backend** does the checking, deriving and proposing, for both modules.
+??? note "How this page came about"
+    Proposal of 27 Oct 2026; decided the same day (phase 2 before the paper) and **built the same day:
+    phases 1 and 2** (section 7). How the two web UI modules (the process sequence planner and the skill
+    editor) are to change, so that:
 
-**Since then** (31 Oct) this file is the proposal and its reasons, not the description of what was
-built. Phase 3 and most of phase 4 were overtaken by planning ([skill-planning.md](skill-planning.md)):
-`modreg serve` checks a skill (`POST /check/<shell>`) and plans one for a capability the module
-offers (`POST /plan/<shell>`), and the editor uses both (29 Oct); a resource agent planning a skill
-for a bid is still to come (A3 in [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)). The flow blocks as built are rule set 2 in
-[module-rules.md](module-rules.md), section 3; the editor as built is described in the web UI fork
-(`aas-web-ui/src/pages/modules/ProcessSequence/skills/README.md`). Since 30 Oct the planner and the
-skill editor also draw the same flows in BPMN notation (`ProcessSequenceBpmn`;
-[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md), 30 Oct).
+    - the Skills submodel opens on an **overview**, and a single skill opens in the **editor**;
+    - a skill can have **branches, conditions and parallel steps**, edited with the planner's own
+      flow editor instead of a list of steps;
+    - a new skill is **recommended and partly made from the ontology**, starting from a product's
+      requirement the line does not offer yet;
+    - one **backend** does the checking, deriving and proposing, for both modules.
 
-Where the tools stand today: [tools.md](tools.md). The model: [aas-models.md](aas-models.md) and
-[ppr-model.md](ppr-model.md). The Control Configuration question, which touches the overview:
-[control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md) (decided 27 Oct: option C).
+    **Since then** (31 Oct) this file is the proposal and its reasons, not the description of what was
+    built. Phase 3 and most of phase 4 were overtaken by planning ([skill-planning.md](skill-planning.md)):
+    `modreg serve` checks a skill (`POST /check/<shell>`) and plans one for a capability the module
+    offers (`POST /plan/<shell>`), and the editor uses both (29 Oct); a resource agent planning a skill
+    for a bid is still to come (A3 in [agents.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/agents.md)). The flow blocks as built are rule set 2 in
+    [module-rules.md](module-rules.md), section 3; the editor as built is described in the web UI fork
+    (`aas-web-ui/src/pages/modules/ProcessSequence/skills/README.md`). Since 30 Oct the planner and the
+    skill editor also draw the same flows in BPMN notation (`ProcessSequenceBpmn`;
+    [design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md), 30 Oct).
+
+    Where the tools stand today: [tools.md](tools.md). The model: [aas-models.md](aas-models.md) and
+    [ppr-model.md](ppr-model.md). The Control Configuration question, which touches the overview:
+    [control-configuration.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/control-configuration.md) (decided 27 Oct: option C).
 
 ## 1. Today
 

@@ -1,14 +1,20 @@
 # From AAS to running code, and back
 
-How a module's control program comes about, how it is described in its Asset Administration
-Shell (AAS), and how it is changed: through the description of its skills, or because a product
-or an order asks for something the module does not do yet. Every step says whether it is built
-(and tried on which hardware) or still missing.
+The whole path of a module's control program: how it comes about, how its AAS describes it, and how
+it is changed, either through the description of its skills or because a product or an order asks for
+something the module does not do yet. Every step says whether it is built and tried on hardware.
+Read it for the big picture before the pages on each tool.
 
-The details are elsewhere: what each AAS holds in [aas-models.md](aas-models.md), the rules a
-module is built by in [module-rules.md](module-rules.md), how each tool works in
-[tools.md](tools.md) (what was built and learnt on the way in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)), what was decided
-in [decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md), the plan in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md).
+??? note "How this page came about"
+    How a module's control program comes about, how it is described in its Asset Administration
+    Shell (AAS), and how it is changed: through the description of its skills, or because a product
+    or an order asks for something the module does not do yet. Every step says whether it is built
+    (and tried on which hardware) or still missing.
+
+    The details are elsewhere: what each AAS holds in [aas-models.md](aas-models.md), the rules a
+    module is built by in [module-rules.md](module-rules.md), how each tool works in
+    [tools.md](tools.md) (what was built and learnt on the way in [work.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/work.md)), what was decided
+    in [decisions.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/decisions.md), the plan in [next-steps.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/next-steps.md).
 
 ## 1. The picture
 

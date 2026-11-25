@@ -1,16 +1,22 @@
 # The Production Sequence as a precedence graph
 
-Proposed on 2 Nov 2026, for the authors and for the colleagues who model products with joints and
-process orders. It describes version 4.0 of the Production Sequence:
-- a product's steps in a partial order, not a list;
-- the joints the colleagues model (`JointConnection`, `JointParams`, `ProcessOrder`) placed in the
-  steps that make or break them;
-- one sequence per archetype (Assembly, Disassembly) in an AAS.
+How to write a product's recipe as a precedence graph (version 4.0 of the Production Sequence): the
+steps in a partial order rather than a list, the joints a step makes or breaks placed in that step,
+and one sequence per archetype (Assembly, Disassembly) in an AAS. Read it when you model a product
+whose steps need not all run one after another. Not built yet: this is the proposed model.
 
-The rest of the product, process and resource model ([ppr-model.md](ppr-model.md)) stays as it is.
-The figure is the page `production-sequence` of `journal-figures.drawio`,
-with `-battery` and `-pharma` beside it. The design decisions are in
-[design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md) (2 Nov). Nothing of this is built yet.
+??? note "How this page came about"
+    Proposed on 2 Nov 2026, for the authors and for the colleagues who model products with joints and
+    process orders. It describes version 4.0 of the Production Sequence:
+    - a product's steps in a partial order, not a list;
+    - the joints the colleagues model (`JointConnection`, `JointParams`, `ProcessOrder`) placed in the
+      steps that make or break them;
+    - one sequence per archetype (Assembly, Disassembly) in an AAS.
+
+    The rest of the product, process and resource model ([ppr-model.md](ppr-model.md)) stays as it is.
+    The figure is the page `production-sequence` of `journal-figures.drawio`,
+    with `-battery` and `-pharma` beside it. The design decisions are in
+    [design-log.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/design-log.md) (2 Nov). Nothing of this is built yet.
 
 ## 1. Why
 

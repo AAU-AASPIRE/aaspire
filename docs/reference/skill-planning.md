@@ -1,15 +1,26 @@
 # Composing skills from capabilities (HTN hybrid)
 
-Design of 27 Oct 2026. A module makes a new module level skill by **planning** it from what its own
-AAS says about capabilities, instead of having it written by hand. The planner is a hybrid of
-hierarchical task networks (HTN) and goal regression, as GTPyhop (Nau, 2021) supports; the same
-domain is also generated as HDDL and PDDL for standard planners. The plan becomes a flow in the AAS
-like any skill the editor makes, and the rules of rule set 2 make it a program ([mapping.md](mapping.md),
-`skill-blocks.drawio`).
+How a module gets a new composite skill by **planning** it from what its own AAS says about
+capabilities, instead of having it written by hand. The planner is a hybrid of hierarchical task
+networks (HTN) and goal regression, as GTPyhop (Nau, 2021) supports; the same domain is also generated
+as HDDL and PDDL for standard planners. The plan becomes a flow in the AAS like any skill the editor
+makes, and the module rules make it a program ([from the AAS to IEC 61499](mapping.md)).
 
 The same model **checks** a flow written by hand: it runs the state through every path and reports a
 condition that does not hold, with the step that would make it hold. The editor shows that as a
-recommendation.
+recommendation. The tool is [modplan](../planning/modplan.md).
+
+??? note "How this page came about"
+    Design of 27 Oct 2026. A module makes a new module level skill by **planning** it from what its own
+    AAS says about capabilities, instead of having it written by hand. The planner is a hybrid of
+    hierarchical task networks (HTN) and goal regression, as GTPyhop (Nau, 2021) supports; the same
+    domain is also generated as HDDL and PDDL for standard planners. The plan becomes a flow in the AAS
+    like any skill the editor makes, and the rules of rule set 2 make it a program ([mapping.md](mapping.md),
+    `skill-blocks.drawio`).
+
+    The same model **checks** a flow written by hand: it runs the state through every path and reports a
+    condition that does not hold, with the step that would make it hold. The editor shows that as a
+    recommendation.
 
 ## 1. Levels, and what is planned
 
