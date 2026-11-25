@@ -2,11 +2,12 @@
 
 <span class="pillar aas">AAS</span> Everything in AASPIRE reads and writes Asset Administration Shells.
 This pillar fixes what they hold: the types every AAS is an instance of, the ontologies every AAS is
-checked against, and the meaning of each element.
+checked against, and the meaning of each element. Start here when you describe a new module, product
+or line.
 
 ## Three kinds of AAS
 
-The split follows ISA-88's recipe levels, which pharmaceutical batch production already uses:
+The split follows ISA-88's recipe levels, which batch production already uses:
 
 | AAS | ISA-88 | One per | Holds | Changes when | Owner |
 | --- | --- | --- | --- | --- | --- |
@@ -14,17 +15,17 @@ The split follows ISA-88's recipe levels, which pharmaceutical batch production 
 | **Process** | Master recipe | product and line | The recipe bound to one line: per step the resource, the skill and what each input is handed; whether it fits | the line is reconfigured | the line engineer |
 | **Resource** | (equipment) | line, module, component | What it offers and how it is called, what its skills are made of, its live values and where it is | the vendor delivers it; tools change it online | the vendor |
 
-Why the process AAS is separate from the product AAS: a reconfiguration changes the resource AASs
-and at most the process AAS, never the product; one product on two lines is two process AASs and
-one product AAS; and each owner has one AAS. The agents later bind the steps per order, and the
-recipe stays as it is.
+Keep the process AAS apart from the product AAS: a reconfiguration then changes the resource AASs and
+at most the process AAS, never the product; one product on two lines is two process AASs and one
+product AAS; and each owner has one AAS to maintain. An orchestrator can still bind the steps per
+order without touching the recipe.
 
-## How an AAS is written
+## How you write an AAS
 
-An AAS is never written by hand as JSON. It is a **profile**: the pydantic dump of its type in
-[aas-model](aas-model.md), without what the type fixes anyway. The registration service builds the
-full AAS from the profile, checks it against the [ontologies](ontologies.md) and publishes it. There
-are no description formats of the lab's own beside the AAS types.
+You never write an AAS by hand as JSON. You write a **profile**: the pydantic dump of its type in
+[aas-model](aas-model.md), without what the type fixes anyway. The registration service builds the full
+AAS from the profile, checks it against the [ontologies](ontologies.md) and publishes it. There are no
+description formats beside the AAS types.
 
 ## What a resource's AAS holds
 
@@ -44,14 +45,11 @@ instance by instance, is the integrator's record, kept beside the AAS.
 
 ## The parts
 
-| Part | What | State |
-| --- | --- | --- |
-| [aas-model](aas-model.md) | The lab's pydantic AAS model: the types of the three AASs and their submodels, made from templates | built; the lab's types on the user's fork until its pull request is merged |
-| [Ontologies](ontologies.md) | ARSO, the blueprint of the resource AAS, beside the product, process and link ontologies and the vocabulary | built (ARSO 0.14) |
-| skill-model | Skills, flows and parameters as every tool reads them | today `modgen.spec` and parts of modsync and modplan; a package of its own planned |
-| aas-generator | From spec sheets to a profile (an LLM pipeline with SHACL validation) | a repository of its own |
+| Part | What |
+| --- | --- |
+| [aas-model](aas-model.md) | The AAS types in Python (pydantic): the three AASs and their submodels, made from templates |
+| [Ontologies](ontologies.md) | ARSO, the blueprint of the resource AAS, beside the product, process and link ontologies and the vocabulary |
 
-Read further: [aas-models.md](../reference/aas-models.md)
-(every element, as built), [ppr-model.md](../reference/ppr-model.md)
-(the model and its applications), [aas-examples.md](../reference/aas-examples.md)
-(the example line's AASs with class diagrams).
+Read further: [the AAS models](../reference/aas-models.md) (every element),
+[the product, process and resource model](../reference/ppr-model.md) (the model and its uses),
+[the example line's AASs](../reference/aas-examples.md) (a whole line, with class diagrams).

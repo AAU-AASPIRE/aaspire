@@ -2,7 +2,8 @@
 
 <span class="pillar aas">AAS</span> The ontologies behind the product, process and resource AASs and
 the links between them, with the vocabulary that says what each AAS element means. ARSO, the
-resource ontology, is the blueprint every resource AAS is checked against.
+resource ontology, is the blueprint every resource AAS is checked against: an AAS you write is valid
+when it passes ARSO. Repository [ontologies](https://github.com/AAU-AASPIRE/ontologies).
 
 <figure markdown="span">
   [![PPRL on top linking APSO, AProSO and ARSO, which build on the AAS v3.1 ontology; CSS beside PPRL;
@@ -19,7 +20,7 @@ resource ontology, is the blueprint every resource AAS is checked against.
 | `APSO/` | APSO 0.2 | The product AAS (to be brought to aas-model's `Product`) |
 | `AProSO/` | AProSO 0.1 | The process AAS (to be brought to aas-model's `Process`) |
 | `PPRL/` | PPRL 0.2 | What lies between them: a step requires a capability a resource offers, matching, skill composition, bindings |
-| `Vocabulary/` | the lab's vocabulary 0.10 | What the AASs' elements mean (their supplemental semantic ids): capabilities, process and auxiliary, and what each kind needs and does; what each is a kind of in DIN 8580 or VDI 2860 |
+| `Vocabulary/` | the vocabulary 0.10 | What the AASs' elements mean (their supplemental semantic ids): capabilities, process and auxiliary, and what each kind needs and does; what each is a kind of in DIN 8580 or VDI 2860 |
 | `AAS/` | AAS v3.1 | The AAS metamodel as RDF (IDTA's, unchanged) |
 | `CSS/` | CSS 2.0.2 | Capabilities, skills and services (Plattform Industrie 4.0; Helmut Schmidt University) |
 | `VDI2860/`, `DIN8580/` | VDI 2860 2.0.0, DIN 8580 2.0.0 | The standards' taxonomies of handling functions and of manufacturing processes (Helmut Schmidt University, unchanged) |
@@ -40,13 +41,13 @@ blueprint. So the three stay structural, and PPRL imports all three with CSS.
   skill can be [planned](../planning/modplan.md) and a step matched to a resource.
 
 ```powershell
-python -m modreg check profiles/FillingModuleAAS.json --ontology ontology/ARSO
-python -m modreg generate --ontology ontology/ARSO
+python -m modreg check profiles/<Module>AAS.json --ontology ontologies/ARSO     # from the workspace folder
+python -m modreg generate --ontology ontologies/ARSO
 ```
 
-ARSO may be extended for new building blocks and for what a skill's contract, steps and
-implementation hold; changes are made with the lab, not to fit the code. After the split the folder
-becomes the `ontologies` repository, a Python package with the Turtle files as data.
+The tools find the repository beside theirs; `AASPIRE_ONTOLOGIES` names another folder. When your
+module needs something ARSO does not describe (a new kind of building block, more of a skill's
+contract), extend the ontology first and let the code follow it, never the other way round.
 
-Read further: the folder's own [README](https://github.com/AAU-AASPIRE/ontologies/blob/main/README.md),
-and [ppr-model.md](../reference/ppr-model.md), sections 3 and 4.
+Read further: the repository's own [README](https://github.com/AAU-AASPIRE/ontologies/blob/main/README.md),
+and [the product, process and resource model](../reference/ppr-model.md), sections 3 and 4.
