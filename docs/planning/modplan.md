@@ -2,11 +2,11 @@
 
 <span class="pillar planning">Planning</span> Plans a new composite skill for a module from its
 Capability Description, checks the skills the module has, and finds what it could carry out after a
-reconfiguration. Folder `aas61499-tools/modplan`; becomes the `modplan` repository.
+reconfiguration. A package of [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools).
 
 <figure markdown="span">
   [![The module's AAS with its Capability Description and Skills on the left; modplan's four steps from
-  a requirement in the middle; the planned skill Filling as four steps and modsync creating it on the
+  a requirement in the middle; the planned skill SkillX as four steps and modsync creating it on the
   right](../figures/modplan.png)](../figures/modplan.png)
   <figcaption>From a requirement to a described skill: read the domain, plan, lift the plan into a flow,
   describe it in the Skills submodel. modsync then builds it on the running module.</figcaption>
@@ -14,9 +14,9 @@ reconfiguration. Folder `aas61499-tools/modplan`; becomes the `modplan` reposito
 
 ## How it plans
 
-The input is a **requirement**: a capability the module offers, the values of its properties
-(FillVolume 2.0), and the results asked for (FillWeight). It comes from a product's step, an engineer,
-or an agent that wants to bid.
+The input is a **requirement**: a capability the module offers, the values of its properties (say
+`Amount = 2.0`), and the results asked for (say `Measured`). It comes from a product's step, an
+engineer, or an agent that wants to bid.
 
 1. **Read** the domain from the module's AAS: the state variables (the properties of the components
    and of the product), the components' capabilities as actions with what they need, do and keep,
@@ -41,25 +41,25 @@ It also:
 - **exports** the same problem for standard planners: PDDL 2.1 with numbers (ENHSP) and HDDL (Aries).
   Their plans, carried out by the domain's own semantics, reach what was asked for.
 
-Planning the filling module's Filling with its weight takes under a millisecond on a PC; reading the
-domain from the AAS about one. The same cases through ENHSP and Aries take tens to hundreds of
-milliseconds.
+Planning a skill of a handful of steps takes under a millisecond on a PC, reading the domain from the
+AAS about one; the same cases through ENHSP and Aries take tens to hundreds of milliseconds.
 
 ## Use it
 
+Point it at a folder of AAS files or at an AAS server (`http://<host>:8081`):
+
 ```powershell
-python -m pip install -e ".[planning]"          # GTPyhop and the vocabulary; ".[planners]" for ENHSP and Aries
-python -m modplan domain aas/                   # what the planner reads: capabilities, constraints, rest state
-python -m modplan check aas/ --skill Dispensing # a module level skill run through the states
-python -m modplan discover aas/                 # what the module can carry out, skill or no skill
-python -m modplan plan aas/ --capability Filling --value FillVolume=2.0 --result FillWeight --write
-python -m modplan export aas/ --capability Filling --value FillVolume=2.0 --as hddl --out planning/
-python -m modsync reconfigure aas/ --host <FORTE's host>   # build the described skill online, and record it
+python -m pip install -e "aaspire-tools[planners]"   # GTPyhop is always in; [planners] adds ENHSP and Aries
+python -m modplan domain <aas>                        # what the planner reads: capabilities, constraints, rest state
+python -m modplan check <aas> --skill <Skill>         # a composite skill run through the states
+python -m modplan discover <aas>                      # what the module can carry out, skill or no skill
+python -m modplan plan <aas> --capability <Capability> --value <Property>=<value> --result <Result> --write
+python -m modplan export <aas> --capability <Capability> --value <Property>=<value> --as hddl --out planning/
+python -m modsync reconfigure <aas> --host <FORTE's host>   # build the described skill online, and record it
 ```
 
-`aas/` is a folder of AAS files or an AAS server (`http://<host>:8081`). `plan --write` describes
-the skill in the AAS it came from; nothing is built until modsync builds it. The registration
-service plans for the Skill Editor too (`POST /plan/<module>`).
+`plan --write` describes the skill in the AAS it came from; nothing is built until modsync builds it.
+The registration service offers the same planning to the Skill Editor (`POST /plan/<module>`).
 
 ## What it assumes
 
@@ -67,5 +67,5 @@ A module's state is a handful of properties of its components and of one product
 value, and a skill starts and ends at rest. Not modelled: relations between many objects (a
 transport system's carriers), arithmetic beyond adding and comparing, and time.
 
-Read further: [skill-planning.md](../reference/skill-planning.md),
-[tools.md](../reference/tools.md), section 5.
+Read further: [composing skills from capabilities](../reference/skill-planning.md),
+[how the tools work](../reference/tools.md), section 5.
