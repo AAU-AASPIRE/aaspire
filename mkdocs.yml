@@ -5,7 +5,7 @@
 site_name: AASPIRE
 site_description: >-
   AAS-based Planning, Integration, Reconfiguration and Execution: plug and produce with the Asset
-  Administration Shell. The framework of the AP2030 project.
+  Administration Shell. How to describe, plug in, change and run a production line from its AASs.
 site_author: AAU Smart Production Lab
 copyright: AAU Smart Production Lab, the AP2030 project
 repo_url: https://github.com/AAU-AASPIRE/aaspire
@@ -96,28 +96,29 @@ nav:
       - Planar controller: execution/planar-controller.md
   - Interfaces: interfaces/web-ui.md
   - Deployment: deployment/deploy.md
-  - Lines: lines/aseptic-line.md
-  - Reference:
-      - "The AAS models": reference/aas-models.md
-      - "The product, process and resource model": reference/ppr-model.md
-      - "The example line's AASs": reference/aas-examples.md
-      - "The Production Sequence as a precedence graph": reference/precedence-graphs.md
-      - "From the AAS to IEC 61499 and back": reference/mapping.md
-      - "From AAS to running code, and back": reference/pipeline.md
-      - "How a module is built: the rules": reference/module-rules.md
-      - "Building skills and equipment": reference/building-skills.md
-      - "Authoring skills": reference/skill-authoring.md
-      - "Composing skills from capabilities": reference/skill-planning.md
-      - "Locations and the table's layout": reference/locations-and-layout.md
-      - "Filling and stoppering modules": reference/modules.md
-      - "The filling program": reference/filling-program.md
-      - "The filling program, with screenshots": reference/filling-program-screenshots.md
-      - "Building FORTE for the Pi": reference/forte-for-the-pi.md
-      - "How the tools work": reference/tools.md
-      - "Tools and how the work is checked": reference/tooling.md
+  - Lines:
+      - "A line's repository": lines/aseptic-line.md
+      - "Example: the line's AASs": reference/aas-examples.md
+      - "Example: the filling and stoppering modules": reference/modules.md
+      - "Example: the filling program": reference/filling-program.md
+      - "Example: the filling program, with screenshots": reference/filling-program-screenshots.md
   - How-to:
       - Run a module on a PC: how-to/simulation.md
-      - Put a module on a Raspberry Pi: how-to/raspberry-pi.md
+      - Deploy a module to an edge device: how-to/raspberry-pi.md
       - Register a module, publish a line: how-to/register.md
       - Change a skill online: how-to/change-a-skill.md
       - Work on this site: how-to/this-site.md
+  - Reference:
+      - "The AAS models": reference/aas-models.md
+      - "The product, process and resource model": reference/ppr-model.md
+      - "The Production Sequence as a precedence graph": reference/precedence-graphs.md
+      - "How a module is built: the rules": reference/module-rules.md
+      - "From the AAS to IEC 61499 and back": reference/mapping.md
+      - "From AAS to running code, and back": reference/pipeline.md
+      - "Building skills and equipment": reference/building-skills.md
+      - "Authoring skills": reference/skill-authoring.md
+      - "Composing skills from capabilities": reference/skill-planning.md
+      - "Locations and layout": reference/locations-and-layout.md
+      - "Building FORTE for the Raspberry Pi": reference/forte-for-the-pi.md
+      - "How the tools work": reference/tools.md
+      - "Tools and how the work is checked": reference/tooling.md
