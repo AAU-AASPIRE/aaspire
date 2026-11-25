@@ -15,7 +15,7 @@ foreach ($name in $names) {
 }
 if ($Install) {
     # In dependency order; each with its tests' extras.
-    foreach ($name in 'iec61499-mgmt-py', 'iec61499-skill-lib', 'modlink', 'modsync', 'modplan', 'modreg', 'module-py', 'AAS-MAS') {
+    foreach ($name in 'iec61499-mgmt-py', 'aaspire-tools', 'AAS-MAS') {
         python -m pip install --no-deps -e (Join-Path $root $name)
         if ($LASTEXITCODE -ne 0) { throw "pip install of $name failed" }
     }

@@ -9,7 +9,7 @@ grep -v '^\s*#' "$here/repositories.txt" | awk 'NF {print $1}' | while read -r n
     if [ -d "$root/$name/.git" ]; then echo "$name: there"; else git clone "https://github.com/AAU-AASPIRE/$name.git" "$root/$name"; fi
 done
 if [ "${1:-}" = "--install" ]; then
-    for name in iec61499-mgmt-py iec61499-skill-lib modlink modsync modplan modreg module-py AAS-MAS; do
+    for name in iec61499-mgmt-py aaspire-tools AAS-MAS; do
         python -m pip install --no-deps -e "$root/$name"
     done
 fi
