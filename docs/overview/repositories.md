@@ -1,9 +1,10 @@
 # Repositories
 
 AASPIRE is a set of repositories in the GitHub organization
-[AAU-AASPIRE](https://github.com/AAU-AASPIRE), one per part, grouped by pillar. Until 24 November 2026
+[AAU-AASPIRE](https://github.com/AAU-AASPIRE), grouped by pillar. The tools, used together, are one
+repository (aaspire-tools) with a package per tool; the table names each. Until 24 November 2026
 they shared one repository (AAUSmartProductionLab/iec61499-mgmt-py); each part was copied out with its
-history.
+history (the tools on 25 November, after a day in repositories of their own).
 
 <figure markdown="span">
   [![The repositories of AAU-AASPIRE by pillar, and where each came from](../figures/repository-map.png)](../figures/repository-map.png)
@@ -14,18 +15,19 @@ history.
 | --- | --- | --- | --- |
 | AAS | [ontologies](https://github.com/AAU-AASPIRE/ontologies) | ARSO, APSO, AProSO, PPRL and the vocabulary | [Ontologies](../aas/ontologies.md) |
 | AAS | [aas-model](https://github.com/AAU-AASPIRE/aas-model) | The lab's AAS model: types, templates, instances (a placeholder until it merges upstream) | [aas-model](../aas/aas-model.md) |
-| Planning | [modplan](https://github.com/AAU-AASPIRE/modplan) | Plans a new skill from a module's capabilities | [modplan](../planning/modplan.md) |
-| Integration | [modreg](https://github.com/AAU-AASPIRE/modreg) | Builds, checks, derives and publishes the AASs; the registration and skill service | [Registration service](../integration/registration.md) |
-| Integration | [modlink](https://github.com/AAU-AASPIRE/modlink) | Runs a module's skills over OPC UA from its AAS | [modlink](../integration/modlink.md) |
+| Planning | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modplan | Plans a new skill from a module's capabilities | [modplan](../planning/modplan.md) |
+| Integration | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modreg | Builds, checks, derives and publishes the AASs; the registration and skill service | [Registration service](../integration/registration.md) |
+| Integration | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modlink | Runs a module's skills over OPC UA from its AAS | [modlink](../integration/modlink.md) |
 | Integration | [aas-camel-dmp](https://github.com/AAU-AASPIRE/aas-camel-dmp) | The data-mapping processor (Tristan's, moving here) | [DMP](../integration/dmp.md) |
-| Reconfiguration | [modsync](https://github.com/AAU-AASPIRE/modsync) | Keeps a running IEC 61499 program in step with its AAS | [modsync](../reconfiguration/modsync.md) |
-| Reconfiguration | [iec61499-skill-lib](https://github.com/AAU-AASPIRE/iec61499-skill-lib) | ModLib and modgen | [Skill library](../reconfiguration/skill-lib.md) |
+| Reconfiguration | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modsync | Keeps a running IEC 61499 program in step with its AAS | [modsync](../reconfiguration/modsync.md) |
+| Reconfiguration | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): ModLib, modgen | The IEC 61499 library for skill-based modules, and its generator | [Skill library](../reconfiguration/skill-lib.md) |
 | Reconfiguration | [iec61499-mgmt-py](https://github.com/AAU-AASPIRE/iec61499-mgmt-py) | The client of FORTE's management protocol | [Management library](../reconfiguration/mgmt.md) |
 | Reconfiguration | [forte-runtime](https://github.com/AAU-AASPIRE/forte-runtime) | FORTE for the PC and the Pi, our patches, the Pi installer | [FORTE runtime](../reconfiguration/runtime.md) |
 | Execution | [AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS) | The multi-agent orchestrator (package `lineagents`) | [Line agents](../execution/agents.md) |
 | Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller | [Planar controller](../execution/planar-controller.md) |
-| Execution | [module-py](https://github.com/AAU-AASPIRE/module-py) | A module run in Python (modpy), for the robots | |
+| Execution | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modpy | A module run in Python, for the robots | |
 | Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) | The BaSyx web UI, our fork: Process Sequence, the skill editor, the Configurator | [Web UI](../interfaces/web-ui.md) |
+| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) | The modules' HMI in Python, with its module simulator (the lab's, moving here) | |
 | Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack, the Pi tooling, the bench tools | [Deployment](../deployment/deploy.md) |
 | Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's line: specs, generated programs, example AASs, evaluation | [The aseptic line](../lines/aseptic-line.md) |
 | Main | [aaspire](https://github.com/AAU-AASPIRE/aaspire) | This site, the repositories' map, the workspace | [This site](../how-to/this-site.md) |

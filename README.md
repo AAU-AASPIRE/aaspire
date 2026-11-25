@@ -24,18 +24,14 @@ reconfiguration and execution around it, the aseptic line below](docs/figures/fr
 | --- | --- | --- |
 | AAS | [ontologies](https://github.com/AAU-AASPIRE/ontologies) | ARSO, APSO, AProSO and PPRL: the resource, product, process and link ontologies, with the capability and skill vocabulary |
 | AAS | [aas-model](https://github.com/AAU-AASPIRE/aas-model) | The lab's AAS model: the types, templates and instances of the product, process and resource AASs |
-| Planning | [modplan](https://github.com/AAU-AASPIRE/modplan) | Plans new skills for a module from its Capability Description (HTN; PDDL and HDDL export) |
-| Integration | [modreg](https://github.com/AAU-AASPIRE/modreg) | Builds, checks, derives and publishes the AASs; the registration and skill service |
-| Integration | [modlink](https://github.com/AAU-AASPIRE/modlink) | Runs a module's skills over its OPC UA server, from its AAS |
+| All | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools) | The tools, one package each: modplan plans new skills from a module's Capability Description (planning); modreg builds, checks, derives and publishes the AASs and is the registration and skill service, modlink runs a module's skills over OPC UA from its AAS (integration); ModLib is the IEC 61499 library for skill-based modules, modgen generates a module's program, modsync keeps a running program in step with its AAS (reconfiguration); modpy runs a module in Python for devices FORTE does not reach (execution) |
 | Integration | [aas-camel-dmp](https://github.com/AAU-AASPIRE/aas-camel-dmp) (moving here from Tristan's) | The data-mapping processor: the AASs' Operations call the modules, their values fill the time series |
-| Reconfiguration | [modsync](https://github.com/AAU-AASPIRE/modsync) | Keeps a running IEC 61499 program in step with its AAS: reads it back, compares, reconfigures it online |
-| Reconfiguration | [iec61499-skill-lib](https://github.com/AAU-AASPIRE/iec61499-skill-lib) | ModLib, the IEC 61499 library for skill-based modules, and modgen, which generates a module's program |
 | Reconfiguration | [iec61499-mgmt-py](https://github.com/AAU-AASPIRE/iec61499-mgmt-py) | A Python client for the management protocol of Eclipse 4diac FORTE |
 | Reconfiguration | [forte-runtime](https://github.com/AAU-AASPIRE/forte-runtime) | FORTE with ModLib built in, for the PC and the Raspberry Pi; our patches; the Pi installer |
 | Execution | [AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS) | The multi-agent orchestrator: order, product and resource agents bidding over XMPP (VDI/VDE 2193) |
 | Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller: its shuttles as OPC UA modules, multi-shuttle planning |
-| Execution | [module-py](https://github.com/AAU-AASPIRE/module-py) | A module run in Python instead of IEC 61499, for devices FORTE does not reach (the robots) |
 | Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) (a fork of BaSyx's) | The BaSyx web UI with the skill editor, matching and planning, and the Configurator |
+| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) (moving here from the lab's) | The modules' HMI in Python (FastAPI, OPC UA): PackML state, skills, parameters and results, operated through methods; its module simulator |
 | Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack (BaSyx, MongoDB, the DMP, InfluxDB, Prosody, the services), the Pi tooling, the bench tools |
 | Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's aseptic filling line: module specs, generated programs, example AASs, evaluation |
 
