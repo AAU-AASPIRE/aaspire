@@ -14,7 +14,9 @@ ways in which a client then reaches the module.
 3. The AAS server announces the new shell over MQTT. The [DMP](dmp.md) maps the module's interface; the
    agent manager starts the module's [resource agent](../execution/agents.md).
 
-A module can also be registered by hand: a vendor or an engineer sends the profiles to the service.
+Nothing in these steps is specific to one module: a module plugs in by itself as long as it serves its
+manifest. You can also register a module by hand, sending its profiles to the service
+([register a module](../how-to/register.md)).
 
 ## Two ways to call a module
 
@@ -23,14 +25,13 @@ A module can also be registered by hand: a vendor or an engineer sends the profi
 | **Straight over OPC UA** | [modlink](modlink.md) reads the module's interface from its AAS and calls its methods: occupy, bring it to Execute, start the skill, follow its state, release | Fast; the state as it changes | What is done is not in the AAS's log |
 | **Through the AAS server** | The client invokes the skill's Operation at the AAS server; the [DMP](dmp.md) calls the module's method and writes the values to InfluxDB | One way in for every client and language; every call logged | Slower: two services in between, the state read from the database |
 
-Both orchestrators can use either; which one is a setting per resource. The proposal for the demo is
-to go through the DMP for its log and to keep the direct way for speed.
+An orchestrator can use either; you choose per resource. A good default is the AAS server where you
+want every call logged, and OPC UA where speed matters.
 
 ## The parts
 
-| Part | What | State |
-| --- | --- | --- |
-| [Registration service](registration.md) (`modreg serve`) | Builds, checks, discovers and publishes AASs; checks and plans for the Skill Editor; writes process AASs | built; its own and the colleagues' registration service to be joined into one |
-| [DMP](dmp.md) (`aas-camel-dmp`) | Runs the mappings of the published AASs | built, in the lab's AAS stack |
-| [modlink](modlink.md) | Runs a module's skills from its AAS over OPC UA | built; in the HMI repository for now |
-| mqtt-schemas | The MQTT messages' JSON schemas | the colleagues'; kept if still needed |
+| Part | What |
+| --- | --- |
+| [Registration service](registration.md) (`modreg serve`) | Builds, checks, discovers and publishes AASs; checks and plans for the Skill Editor; writes process AASs |
+| [DMP](dmp.md) (`aas-camel-dmp`) | Runs the mappings of the published AASs |
+| [modlink](modlink.md) | Runs a module's skills from its AAS over OPC UA |
