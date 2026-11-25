@@ -16,7 +16,7 @@ How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md
 | Live, against a FORTE on this PC | `python -m pytest -q --module-forte-exe runtime/fbe/build/modules-win/forte/build/forte/forte.exe` | About 12 min. Run it in the background with the output in a log file: FORTE's console output drowns the pipe. Each test starts its own FORTE (and Modbus simulator) on free ports and stops it |
 | Live, against a Pi | `python -m pytest cell/tests/test_module_live.py --pi-host <Pi IP> --sim-host <this PC's IP>` | Deploys each module as the Pi's boot file (it replaces the Pi's program: ask the user first, and deploy the module again afterwards); the Pi's FORTE talks Modbus to the simulator on this PC, no header pin is used |
 | The Pi binary under emulation | `python -m pytest deploy/tests/test_pwm_emulated.py --pi-forte-exe runtime/fbe/build/modules-pi/output/bin/forte` | Docker with arm64 emulation and a fake `/sys/class/pwm`: checks the PWM and IO blocks of the Pi build without a Pi |
-| The HMI submodule | `cd iec61499-opcua-hmi; python -m pytest -q` | Its own tests, not run with the repository's |
+| The HMI | `cd iec61499-opcua-hmi; python -m pytest -q` | Its own tests; aaspire-tools' modlink tests run on its simulator |
 | The 4diac IDE's own checks | `runtime/check-project.ps1 -ProjectDir cell/control/FillingModule` | Headless: every type loads and compiles, the system has no broken connection and no overlapping blocks in an application. Expect 0 errors and 0 application collisions; the resource views always report collisions (the IDE draws mapped blocks at their group-relative positions) |
 
 Where the tests are: `iec61499-mgmt-py/tests` (protocol, boot files, planner),
@@ -144,7 +144,7 @@ scripts and the scenario runner, plan step A4) are in `modsync/desired.py`: `loa
 (Reset, Start, Stop, Abort, Clear; State), `Skills/<Skill>` (Start, Stop, Abort, Reset; State,
 ErrorID, parameters, results), `Equipment/<Item>`. Occupy with any session string (a UUID) and pass
 it to every method; Reset, then Start the module, then skills. Clients: `cell/sim/module_ua.py`
-(small, for tests), `modlink` in `iec61499-opcua-hmi` (runs a module from its AAS), the HMI
+(small, for tests), `modlink` in aaspire-tools (runs a module from its AAS), the HMI
 (`cd iec61499-opcua-hmi; python run.py --aas <AAS file or server> --modules filling`), UaExpert.
 
 ## 4. A whole module on this PC

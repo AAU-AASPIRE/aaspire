@@ -3,7 +3,9 @@
 <span class="pillar integration">Integration</span> Runs a module's skills from its AAS over OPC UA. It
 reads the AAS as plain JSON, follows its references to the OPC UA nodes, and calls the module the way
 every module is called: occupy, bring it to Execute, start the skill, wait for its end, release. In the
-HMI repository for now (submodule `iec61499-opcua-hmi/`); becomes the `modlink` repository.
+[aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools) with the other tools; the HMI
+([iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi)) is built on it, and its
+tests run on the HMI's module simulator.
 
 <figure markdown="span">
   [![The four AAS submodels modlink follows by reference, modlink's Resource, Link and a run in six

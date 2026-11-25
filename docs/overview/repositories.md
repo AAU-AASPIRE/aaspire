@@ -27,7 +27,7 @@ history (the tools on 25 November, after a day in repositories of their own).
 | Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller | [Planar controller](../execution/planar-controller.md) |
 | Execution | [aaspire-tools](https://github.com/AAU-AASPIRE/aaspire-tools): modpy | A module run in Python, for the robots | |
 | Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) | The BaSyx web UI, our fork: Process Sequence, the skill editor, the Configurator | [Web UI](../interfaces/web-ui.md) |
-| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) | The modules' HMI in Python, with its module simulator (the lab's, moving here) | |
+| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) | The modules' HMI in Python, with its module simulator (from the lab's) | |
 | Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack, the Pi tooling, the bench tools | [Deployment](../deployment/deploy.md) |
 | Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's line: specs, generated programs, example AASs, evaluation | [The aseptic line](../lines/aseptic-line.md) |
 | Main | [aaspire](https://github.com/AAU-AASPIRE/aaspire) | This site, the repositories' map, the workspace | [This site](../how-to/this-site.md) |

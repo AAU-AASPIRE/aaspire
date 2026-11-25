@@ -31,7 +31,7 @@ reconfiguration and execution around it, the aseptic line below](docs/figures/fr
 | Execution | [AAS-MAS](https://github.com/AAU-AASPIRE/AAS-MAS) | The multi-agent orchestrator: order, product and resource agents bidding over XMPP (VDI/VDE 2193) |
 | Execution | [planar-controller](https://github.com/AAU-AASPIRE/planar-controller) | The planar table's controller: its shuttles as OPC UA modules, multi-shuttle planning |
 | Interfaces | [basyx-aas-web-ui](https://github.com/AAU-AASPIRE/basyx-aas-web-ui) (a fork of BaSyx's) | The BaSyx web UI with the skill editor, matching and planning, and the Configurator |
-| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) (moving here from the lab's) | The modules' HMI in Python (FastAPI, OPC UA): PackML state, skills, parameters and results, operated through methods; its module simulator |
+| Interfaces | [iec61499-opcua-hmi](https://github.com/AAU-AASPIRE/iec61499-opcua-hmi) (from the lab's) | The modules' HMI in Python (FastAPI, OPC UA): PackML state, skills, parameters and results, operated through methods; its module simulator |
 | Deployment | [deploy](https://github.com/AAU-AASPIRE/deploy) | The lab stack (BaSyx, MongoDB, the DMP, InfluxDB, Prosody, the services), the Pi tooling, the bench tools |
 | Lines | [aseptic-line](https://github.com/AAU-AASPIRE/aseptic-line) | The lab's aseptic filling line: module specs, generated programs, example AASs, evaluation |
 
