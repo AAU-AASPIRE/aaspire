@@ -1,6 +1,6 @@
 # The example line: its AASs
 
-24 AASs, the lab's reference models: the line, the planar table and its shuttles, the modules
+24 AASs, the example line's reference models, to copy from when you describe a line of your own: the line, the planar table and its shuttles, the modules
 (filling, stoppering, capping, inspection; loading and unloading are named but not described yet),
 the components of each module, three products (a 2 mL vial, a prefilled syringe of 1 mL, a
 cartridge of 3 mL) and the process of each on the line. A process AAS binds a product's recipe to

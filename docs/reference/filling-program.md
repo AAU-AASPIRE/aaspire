@@ -1,10 +1,10 @@
 # The filling program, block by block
 
-What every function block of the lab's IEC 61499 module programs does, in plain words, with the
+What every function block of an AASPIRE module program does, in plain words, with the example line's
 filling module as the example: what a client can call over OPC UA, which blocks a call reaches, how
-a command ends up on the Raspberry Pi's pins, and where the values the module shows come from. It is
-written for students who make new function blocks by hand in the 4diac IDE for the real stoppering
-and capping modules: new skill primitives, and new equipment with its pins.
+a command ends up on the device's pins, and where the values the module shows come from. It is
+written for anyone who makes new function blocks by hand in the 4diac IDE for a module of their own:
+new skill primitives, and new equipment with its pins.
 
 **What you make, and what you reuse.** Most of a module program is the same in every module and is
 already there: who may command the module, its state, the skill's checks and state machine, the run

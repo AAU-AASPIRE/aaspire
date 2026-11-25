@@ -1,10 +1,11 @@
 # Filling and stoppering modules
 
-The specs are `cell/modules/filling.yaml` and `cell/modules/stoppering.yaml`, the generated 4diac
+The example line's modules, as a worked example of how a line's modules are specified, built from
+common components and brought onto hardware. The specs are `cell/modules/filling.yaml` and `cell/modules/stoppering.yaml`, the generated 4diac
 projects `cell/control/FillingModule` and `cell/control/StopperingModule`. Both run against the
-simulator (`cell/sim/module_sim.py`) in `cell/tests/`. Each runs on its own Raspberry Pi 5: the
-filling module on 192.168.0.203, where its axis is wired and moves; the stoppering module on
-192.168.0.134, whose wiring is not known yet.
+simulator (`cell/sim/module_sim.py`) in `cell/tests/`. Each runs on its own Raspberry Pi 5 (the
+address is the `pi` target's `host` in its spec): the filling module with its axis wired and moving,
+the stoppering module still to be wired.
 
 Both began as ports of ESP32 stations (`arduino_cpp_examples/Physical-Stations`: `FillingModule.cpp`,
 `StopperingModule.cpp`; a local reference copy, not in the repository). Since 8 Oct 2026 they are
