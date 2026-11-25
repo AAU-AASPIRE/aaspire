@@ -21,7 +21,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "iec61499-skill-lib"))
+sys.path.insert(0, str(ROOT / "aaspire-tools"))
 import modgen  # noqa: E402
 
 OUT = ROOT / "docs/filling-program/templates"

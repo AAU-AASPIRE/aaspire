@@ -68,7 +68,7 @@ What `runtime/build-pi.ps1` does, and how to run each step alone.
    python -m modgen
    ```
 
-   This writes `iec61499-skill-lib/ModLib` and `cell/control/<Module>`, each with a
+   This writes `aaspire-tools/ModLib` and `cell/control/<Module>`, each with a
    `types-manifest.json` listing its types.
 
 2. **Export the types as C++ into the FBE's module folder.** For ModLib and every module, the 4diac

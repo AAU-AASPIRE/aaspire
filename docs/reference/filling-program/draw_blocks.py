@@ -32,7 +32,7 @@ from xml.etree import ElementTree as ET
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "iec61499-skill-lib"))
+sys.path.insert(0, str(ROOT / "aaspire-tools"))
 from modgen import layout  # noqa: E402
 
 FONT = "Segoe UI, Helvetica, Arial, sans-serif"

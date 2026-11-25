@@ -40,8 +40,8 @@ that runs, so it is created in any state, even while another skill executes.
 
 | Part | What | Page |
 | --- | --- | --- |
-| modsync | The running program against its AAS: verify, change online, record, the IDE project of what runs | [modsync](modsync.md) |
-| iec61499-skill-lib | ModLib (the module library), modgen (spec to 4diac project), the module rules | [Skill library](skill-lib.md) |
+| aaspire-tools: modsync | The running program against its AAS: verify, change online, record, the IDE project of what runs | [modsync](modsync.md) |
+| aaspire-tools: ModLib, modgen | ModLib (the module library), modgen (spec to 4diac project), the module rules | [Skill library](skill-lib.md) |
 | iec61499-mgmt-py | FORTE's management protocol in Python, boot files, `.sys` flattening, read-back | [Management library](mgmt.md) |
 | forte-runtime | FORTE built with every module's block types, for the PC and the Raspberry Pi | [FORTE runtime](runtime.md) |
 | Skill Editor | A composite skill written as a flow, in the web UI | [Web UI](../interfaces/web-ui.md) |

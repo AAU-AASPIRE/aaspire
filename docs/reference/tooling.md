@@ -12,7 +12,7 @@ How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md
 | What | Command | Notes |
 | --- | --- | --- |
 | Offline, every folder | `python -m pytest -q` | 2 to 4 min. No known failure (31 Oct: the `aas-model` submodule is on `lab-ppr-models` at the commit `pyproject.toml` pins) |
-| One folder or test | `python -m pytest -q iec61499-skill-lib/tests/test_modgen.py -k layout` | |
+| One folder or test | `python -m pytest -q aaspire-tools/tests/test_modgen.py -k layout` | |
 | Live, against a FORTE on this PC | `python -m pytest -q --module-forte-exe runtime/fbe/build/modules-win/forte/build/forte/forte.exe` | About 12 min. Run it in the background with the output in a log file: FORTE's console output drowns the pipe. Each test starts its own FORTE (and Modbus simulator) on free ports and stops it |
 | Live, against a Pi | `python -m pytest cell/tests/test_module_live.py --pi-host <Pi IP> --sim-host <this PC's IP>` | Deploys each module as the Pi's boot file (it replaces the Pi's program: ask the user first, and deploy the module again afterwards); the Pi's FORTE talks Modbus to the simulator on this PC, no header pin is used |
 | The Pi binary under emulation | `python -m pytest deploy/tests/test_pwm_emulated.py --pi-forte-exe runtime/fbe/build/modules-pi/output/bin/forte` | Docker with arm64 emulation and a fake `/sys/class/pwm`: checks the PWM and IO blocks of the Pi build without a Pi |
@@ -20,8 +20,8 @@ How each tool works inside (its algorithm, for the paper) is [tools.md](tools.md
 | The 4diac IDE's own checks | `runtime/check-project.ps1 -ProjectDir cell/control/FillingModule` | Headless: every type loads and compiles, the system has no broken connection and no overlapping blocks in an application. Expect 0 errors and 0 application collisions; the resource views always report collisions (the IDE draws mapped blocks at their group-relative positions) |
 
 Where the tests are: `iec61499-mgmt-py/tests` (protocol, boot files, planner),
-`iec61499-skill-lib/tests/test_modgen.py` (the generator and the committed projects),
-`aas61499-tools/tests` (`test_modsync*`, `test_modreg*`, `test_modplan*`; `*_live.py` need FORTE),
+`aaspire-tools/tests` (`test_modgen.py`, the generator and the committed projects; `test_modsync*`,
+`test_modreg*`, `test_modplan*`, `test_modlink*`, `test_modpy.py`; `*_live.py` need FORTE),
 `cell/tests` (modules live, the example line, the vocabulary, the DMP live), `deploy/tests`,
 `line-agents/tests` (the agents; `test_agents_live.py` needs FORTE). The shared live-test options
 are in `conftest.py` at the top.
@@ -32,12 +32,12 @@ with the regenerated projects.
 
 ## 2. Changing the 4diac programs
 
-The projects in `cell/control/` and `iec61499-skill-lib/ModLib` are generated. Do not edit their
+The projects in `cell/control/` and `aaspire-tools/ModLib` are generated. Do not edit their
 XML: change the spec or the generator, regenerate, check.
 
 | To change | Where |
 | --- | --- |
-| A module's equipment, IO points, skills, parameters, targets (host, board) | `cell/modules/<module>.yaml` (`iec61499-skill-lib/tests/modules/filler.yaml` for the generator's test module); schema in `modgen/spec.py` |
+| A module's equipment, IO points, skills, parameters, targets (host, board) | `cell/modules/<module>.yaml` (`aaspire-tools/tests/modules/filler.yaml` for the generator's test module); schema in `modgen/spec.py` |
 | A library block (module state manager, occupation, skill core, IO blocks, parameter blocks) | `modgen/library.py` (writes ModLib; module projects carry copies) |
 | The structure of a module's program (applications, groups, a module level skill's pattern, equipment and skill primitive blocks, start-up) | `modgen/module.py`; the rules it follows are [module-rules.md](module-rules.md) |
 | Pin comments | `modgen/pins.py` (a test requires a comment on every pin) |
@@ -45,8 +45,8 @@ XML: change the spec or the generator, regenerate, check.
 | Layout | `modgen/layout.py`; XML writing, kept layouts and hidden connections in `modgen/fbxml.py` |
 
 ```powershell
-cd iec61499-skill-lib; ../.venv/Scripts/python.exe -m modgen     # all projects; or give spec paths
-../.venv/Scripts/python.exe -m pytest -q tests/test_modgen.py
+cd aseptic-line; python -m modgen                                 # all projects; or give spec paths
+python -m pytest -q ../aaspire-tools/tests/test_modgen.py
 cd ..; runtime/check-project.ps1 -ProjectDir cell/control/FillingModule   # and the other projects
 ```
 
@@ -160,7 +160,7 @@ scale, on ports 1502/1503), FORTE, and deploys the PC target's application; OPC 
 `--forte` it takes `output/bin/forte.exe`, which is older than the IO blocks of 21 Oct until the
 Windows build is installed again (section 2).
 
-The robot modules run in Python, without FORTE (`module-py/`, [demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md),
+The robot modules run in Python, without FORTE (modpy in `aaspire-tools/modpy`, [demo-modules.md](https://github.com/AAU-AASPIRE/aaspire-internal/blob/main/docs/demo-modules.md),
 section 3); their robots are simulated, `--speed` makes the jobs quicker:
 
 ```powershell

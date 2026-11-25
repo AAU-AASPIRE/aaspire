@@ -1,9 +1,9 @@
 # Skill library
 
-<span class="pillar reconfiguration">Reconfiguration</span> `iec61499-skill-lib`: ModLib, the library
+<span class="pillar reconfiguration">Reconfiguration</span> In `aaspire-tools`: ModLib, the library
 every module is built from (occupation, the PackML state manager, the skill state machine, parameter
 latches, flow blocks, IO blocks), and `modgen`, which generates a module's 4diac project from its
-module spec. Folder `iec61499-skill-lib/`.
+module spec. Folders `ModLib/`, `stdtypes/` and `modgen/` of aaspire-tools.
 
 <figure markdown="span">
   [![A module spec on the left, what modgen writes in the middle (ModLib and the module's project), and
@@ -33,7 +33,7 @@ equipment.
 
 | Generated | What it is |
 | --- | --- |
-| ModLib (`iec61499-skill-lib/ModLib`, package `modlib`) | `MOD_Occupation`, `MOD_StateManager` (PackML), `SKILL_Core` (a skill's state machine and OPC UA methods), `SKILL_Param_*` (a parameter's value and range), `SKILL_FailMerge`, the flow blocks `SKILL_Join2` to `4`, `SKILL_Condition_*`, `SKILL_Merge`, and the IO blocks `IO_DI`, `IO_DO`, `IO_AI`, `IO_AO` |
+| ModLib (`aaspire-tools/ModLib`, package `modlib`) | `MOD_Occupation`, `MOD_StateManager` (PackML), `SKILL_Core` (a skill's state machine and OPC UA methods), `SKILL_Param_*` (a parameter's value and range), `SKILL_FailMerge`, the flow blocks `SKILL_Join2` to `4`, `SKILL_Condition_*`, `SKILL_Merge`, and the IO blocks `IO_DI`, `IO_DO`, `IO_AI`, `IO_AO` |
 | `EQ_<Item>` per equipment item | Owns its IO points; writes what its one holder commands; publishes its inputs |
 | `SK_<Skill>` per primitive | `SKILL_Core`, a latch per parameter, the contract, its equipment's command table |
 | The system, an application per target | Occupation, Module, the equipment with that target's IO addresses, the offered primitives, the procedures, each module level skill as a subapplication; one INIT chain from the resource's START |
@@ -51,11 +51,11 @@ only what overlaps is spread.
 ## Use it
 
 ```powershell
-cd iec61499-skill-lib
+cd aseptic-line
 python -m modgen                                  # ModLib and every module's project
-cd ..
-runtime/check-project.ps1 -ProjectDir cell/control/FillingModule   # the 4diac IDE's own checks, headless
-python -m pytest -q iec61499-skill-lib/tests      # the generator against the committed projects
+../forte-runtime/check-project.ps1 -ProjectDir cell/control/FillingModule   # the 4diac IDE's own checks, headless
+cd ../aaspire-tools
+python -m pytest -q tests/test_modgen.py          # the generator against the committed projects
 ```
 
 A change to the generator is committed with the regenerated projects; a test generates every project

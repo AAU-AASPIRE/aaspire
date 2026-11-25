@@ -10,7 +10,7 @@ This note is left out of the students' zip.
 The lab's projects in `cell/control` are written by `modgen` from the module specs
 (`cell/modules/*.yaml`); how is in [../building-skills.md](../building-skills.md) and
 [../tooling.md](../tooling.md). The comments on every type, pin and block come from
-`iec61499-skill-lib/modgen/explain.py` and the specs' `description`s. A type a student makes by
+`aaspire-tools/modgen/explain.py` and the specs' `description`s. A type a student makes by
 hand in `cell/control/<Module>` is removed by the next `python -m modgen`, so their work stays in
 their own copy of the project (the kit's `projects/`, or the zip's). To bring a student's equipment
 or primitive into the lab's program, write it into the spec, generate, and compare with theirs.
