@@ -11,3 +11,9 @@ planar-controller      # the planar table's controller (OPC UA)
 iec61499-opcua-hmi     # the modules' HMI and its module simulator
 deploy                 # the lab stack, the Pi tooling, the bench tools
 aseptic-line           # the lab's line: module specs, generated programs, examples, evaluation
+aas-camel-dmp          # the data-mapping processor (the DMP)
+basyx-aas-web-ui       # the BaSyx web UI fork: skill editor, Configurator, AIMC and TimeSeries plugins
+state-store            # the state store (Oxigraph) and its vocabulary loader
+pddl-planner           # the production planner (FOND, later PDDL 2.1; Unified Planning)
+bt-controller          # the behaviour-tree controller
+station-simulator      # simulated PackML stations and packml_runtime
